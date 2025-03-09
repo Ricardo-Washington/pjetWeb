@@ -293,7 +293,7 @@ header{
 }
 .redes{
     display: flex;
-    margin-top: 180px;
+    margin-top: 220px;
     margin-left: 20px;
 }
 .instagem img{
@@ -314,5 +314,6 @@ header{
 .youtube img{
     width: 30px;
     height: auto;
+    margin-bottom: 130px;
 }
 

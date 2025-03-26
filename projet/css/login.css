@@ -4,9 +4,7 @@ body{
     margin-left: 9%;
     font-family: 'Courier New', Courier, monospace;
 }
-header{
-    border-bottom: 2px solid #eec7b185;
-}
+
 .topo{
     width: 100%;
     height: auto;
@@ -45,6 +43,9 @@ header{
 .titutlo1 h1{
     font-weight: bold;
 }
+.tituloimp{
+    margin-left: 45px;
+}
 .subtitle{
     color: #3b3b3b83;
 }
@@ -69,7 +70,14 @@ header{
     box-shadow: 2px 2px 5px #000000b0 ;
 }
 .imputs{
-    border-bottom: 2px solid #eec7b185;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+form{
+    width: 400px;
 }
 .imp1{
     display: flex;
@@ -80,10 +88,14 @@ header{
 .imppw{
     margin-bottom: 28px;
 }
-.buttoncadastra{
-    margin-bottom: 150px;
+.imputes input{
+    padding: 13px;
+    width: -webkit-fill-available;
 }
-.buttoncadastra button{
+.buttoncadastrar{
+    margin-bottom: 10%;
+}
+.buttonesqueci button{
     border: none;
     font-size: 15px;
     cursor: pointer;
@@ -91,8 +103,44 @@ header{
     width: auto;
     height: 30px;
     margin-right: 10px;
+    margin-top: 10px;
+    width: -webkit-fill-available;
 }
-.buttoncadastra button:hover{
+.buttonesqueci button:hover{
+    background: #000000;
+    color: #fff;
+    box-shadow: 3px 3px 5px black;
+    transition: 250ms;
+}
+.buttonlogin button{
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: auto;
+    height: 30px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: -webkit-fill-available;
+}
+.buttonlogin button:hover{
+    background: #000000;
+    color: #fff;
+    box-shadow: 3px 3px 5px black;
+    transition: 250ms;
+}
+.buttoncadastrar button{
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: auto;
+    height: 30px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: -webkit-fill-available;
+}
+.buttoncadastrar button:hover{
     background: #000000;
     color: #fff;
     box-shadow: 3px 3px 5px black;

@@ -4,7 +4,6 @@ body{
     margin-left: 9%;
     font-family: 'Courier New', Courier, monospace;
 }
-
 .topo{
     width: 100%;
     height: auto;
@@ -29,13 +28,22 @@ body{
     border-radius: 5px;
     width: auto;
     height: 30px;
-    margin-right: 10px;
+    margin-right: 10px;   
 }
 .infor button:hover{
     background: #000000;
     color: #fff;
     box-shadow: 3px 3px 5px black;
     transition: 250ms;
+}
+.back{
+    background: #00000049;
+    width: 450px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.521);
 }
 .titutlo1{
     margin-top: 50px;
@@ -44,7 +52,7 @@ body{
     font-weight: bold;
 }
 .tituloimp{
-    margin-left: 45px;
+    justify-items: center;
 }
 .subtitle{
     color: #3b3b3b83;
@@ -97,6 +105,7 @@ form{
 }
 .buttonesqueci button{
     border: none;
+    background-color: transparent;
     font-size: 15px;
     cursor: pointer;
     border-radius: 5px;
@@ -114,6 +123,7 @@ form{
 }
 .buttonlogin button{
     border: none;
+    background-color: transparent;
     font-size: 15px;
     cursor: pointer;
     border-radius: 5px;
@@ -131,6 +141,7 @@ form{
 }
 .buttoncadastrar button{
     border: none;
+    background-color: transparent;
     font-size: 15px;
     cursor: pointer;
     border-radius: 5px;
@@ -223,5 +234,8 @@ form{
     height: auto;
     margin-bottom: 130px;
 }
-
+.erro{
+    color: red;
+    display: none;
+}
 

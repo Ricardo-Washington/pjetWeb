@@ -7,6 +7,12 @@ function onChangePassword() {
     toggleButtonsDisable();
     togglePasswordErrors();
 } 
+function login() {
+    window.location.href = "home.html"
+}
+function register() {
+    window.location.href = "cadastra.html"
+}
 
 function toggleEmailErrors() {
     const email = form.email().value;

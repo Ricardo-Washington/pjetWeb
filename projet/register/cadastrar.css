@@ -4,9 +4,7 @@ body{
     margin-left: 9%;
     font-family: 'Courier New', Courier, monospace;
 }
-header{
-    border-bottom: 2px solid #eec7b185;
-}
+
 .topo{
     width: 100%;
     height: auto;
@@ -15,9 +13,19 @@ header{
 .ing{
     width: 100px;
     height: auto;
-    margin-left: 30px;
-    
+    margin-left: 30px;  
 }
+.back{
+    background: #0000002d;
+    width: 500px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.521);
+    margin-bottom: 100px;
+}
+
 .infor{
     display: flex;
     float: right;
@@ -32,6 +40,7 @@ header{
     width: auto;
     height: 30px;
     margin-right: 10px;
+    background-color: transparent;
 }
 .infor button:hover{
     background: #000000;
@@ -60,6 +69,7 @@ header{
     width: 80%;
     height: auto;
     margin-top: -60px;
+    background-color: transparent;
 }
 .imgdapagina img{
     width: 80%;
@@ -68,8 +78,9 @@ header{
     border: 1px solid #00000049;
     box-shadow: 2px 2px 5px #000000b0 ;
 }
-.imputs{
-    border-bottom: 2px solid #eec7b185;
+.imp1 input{
+    padding: 10px;
+
 }
 .imp1{
     display: flex;
@@ -81,7 +92,7 @@ header{
     margin-bottom: 28px;
 }
 .buttoncadastra{
-    margin-bottom: 150px;
+    margin-bottom: 80px;
 }
 .buttoncadastra button{
     border: none;
@@ -91,6 +102,7 @@ header{
     width: auto;
     height: 30px;
     margin-right: 10px;
+    background-color: transparent;
 }
 .buttoncadastra button:hover{
     background: #000000;
@@ -126,6 +138,7 @@ header{
    margin-right: 90px;
    margin-top: 30px;
    font-size: 20px;
+   background-color: transparent;
 }
 .buttonfim button:hover{
    background: #000000;

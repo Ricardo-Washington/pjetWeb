@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/login/login.css">
     
     <title>Document</title>
 </head>
@@ -11,7 +11,7 @@
     <header>
         <div class="topo">
             <div id="imglogo" >
-                <a href="/html/index.html">
+                <a href="/index/index.html">
                     <img class="ing" src="/img/logo-removebg-preview.png" alt="logo"></a>
             </div>
             <div class="infor">
@@ -46,12 +46,12 @@
                     </div>
                     <div>
                         <div class="buttonlogin">
-                            <button id="login-button" type="button"  disabled="true">
+                            <button id="login-button" type="button"  disabled="true" onclick="login()">
                                 Entrar
                             </button>
                         </div>
                         <div class="buttonesqueci" >
-                            <button type="button" id="recover-password-button" disabled="true" >
+                            <button type="button" id="recover-password-button" disabled="true"  onclick="register()">
                                 Esqueci minha cenha
                             </button>
                         </div>
@@ -186,6 +186,6 @@
     </nav>
 </body>
 
-<script src="/js/login.js"></script>
+<script src="/login/login.js"></script>
 <script src="/js/validations.js"></script>
 </html>

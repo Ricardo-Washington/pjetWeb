@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/cadastrar.css">
+    <link rel="stylesheet" href="/register/cadastrar.css">
     <title>cadastra</title>
 </head>
 <body>
@@ -59,46 +59,53 @@
         <nav class="imputs">
             <div class="back">
                 <form class="register">
-                    <div class="tituloimp">
-                        <h1>Login</h1>
+                  <div class="tituloimp">
+                    <h1>Cadastro</h1>
+                  </div>
+                  <div class="imp1">
+                    <div class="imputes">
+                      <h4>Nome</h4>
+                      <input id="name" type="text" placeholder="Nome">
+                      <div class="erro" id="name-required-error">Nome completo obrigatório!</div>
                     </div>
-                    <div class="imp1">
-                        <div class="imputes">
-                            <h4>Nome</h4>
-                            <input type="text" placeholder="Nome" >
-                        </div>
-                        <div class="imputes">
-                            <h4>Email</h4>
-                            <input type="email" placeholder="Email" >
-                        </div>
+                    <div class="imputes">
+                      <h4>Email</h4>
+                      <input id="email" type="email" placeholder="Email" onchange="onChangeEmail()">
+                      <div class="erro" id="email-required-error">Email obrigatório!</div>
+                      <div class="erro" id="email-invalid-error">Email inválido!</div>
                     </div>
-                    <div class="imp1">
-                        <div class="imputes">
-                            <h4>Numero de telefone</h4>
-                            <input type="tel" placeholder="Numero de telefone" >
-                        </div>
-                        <div class="imputes">
-                            <h4>CPF</h4>
-                            <input type="number" placeholder="CPF" >
-                        </div>
+                  </div>
+                  <div class="imp1">
+                    <div class="imputes">
+                      <h4>Número de telefone</h4>
+                      <input id="phone" type="tel" placeholder="Número de telefone">
+                      <div class="erro" id="phone-error">Número de telefone obrigatório!</div>
                     </div>
-                    <div class="imp1">
-                        <div class="imputes">
-                            <h4>Senha</h4>
-                            <input class="imppw" type="password" placeholder="Senha" >
-                        </div>
-                        <div class="imputes">
-                            <h4>confirme Senha</h4>
-                            <input type="password" placeholder="Confirme a senha" >
-                        </div>
+                    <div class="imputes">
+                      <h4>CPF</h4>
+                      <input id="cpf" type="text" placeholder="CPF">
+                      <div class="erro" id="cpf-error">CPF inválido! Apenas números.</div>
                     </div>
-                    <div class="buttoncadastra">
-                        <button type="button">
-                            Cadastra
-                        </button>
+                  </div>
+                  <div class="imp1">
+                    <div class="imputes">
+                      <h4>Senha</h4>
+                      <input class="imppw" id="password" type="password" placeholder="Senha">
+                      <div class="erro" id="password-error">Senha obrigatória! Deve ter pelo menos 6 caracteres.</div>
                     </div>
+                    <div class="imputes">
+                      <h4>Confirme a Senha</h4>
+                      <input type="password" id="confirmPassword" placeholder="Confirme a senha">
+                      <div class="erro" id="confirmPassword-error">Senha e confirmar senha devem ser iguais!</div>
+                    </div>
+                  </div>
+                  <div class="buttoncadastra">
+                    <button type="button" disabled>
+                      Cadastrar
+                    </button>
+                  </div>
                 </form>
-            </div>
+              </div>
         </nav>
         <footer>
             <div class="totalfim">
@@ -112,10 +119,10 @@
                         </h2>
                     </div>
                     <div class="buttonfim">
-                        <button>login</button>
+                        <button type="button" onclick="gologin()">login</button>
                     </div>
                     <div class="buttonfim">
-                        <button>cadastra</button>
+                        <button type="button" onclick="goregister()">cadastrece</button>
                     </div>
                 </div>
                     <div class="topctotal">
@@ -221,4 +228,6 @@
         </footer>
     </nav>
 </body>
+<script src="/js/validations.js"></script>
+<script src="/register/registro.js"></script>
 </html>

@@ -7,11 +7,32 @@ function onChangePassword() {
     toggleButtonsDisable();
     togglePasswordErrors();
 } 
-function login() {
-    window.location.href = "home.html"
+function recoverPassword() {
+    
+    firebase.auth().sendPasswordResetEmail(form.email().value).then(() => {
+        alert('Email enviado com sucesso');
+    }).catch(error => {
+        alert('Usuario não encontrado');
+    });
 }
-function register() {
-    window.location.href = "cadastra.html"
+
+function login() {
+    firebase.auth().signInWithEmailAndPassword(form.email().value, form.password().value).then(response => {
+        window.location.href = "/home/home.html";
+    }).catch(error => {
+        alert(getErrorMessege(error));
+    });
+}
+
+function getErrorMessege(error){
+    if(error.code == "auth/invalid-credential"){
+        return "Usuario não encontrado";
+    }
+    return error.message;
+}
+
+function registergo() {
+    window.location.href = "/register/cadastra.html";
 }
 
 function toggleEmailErrors() {

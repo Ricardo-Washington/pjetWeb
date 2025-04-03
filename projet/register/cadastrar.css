@@ -188,5 +188,8 @@ body{
     height: auto;
     margin-bottom: 130px;
 }
-
+.erro{
+    color: red;
+    display: none;
+}
 

@@ -16,7 +16,7 @@
             </div>
             <div class="infor">
                 <div class="login">
-                    <p><button>pagina inicial</button></p>
+                    <p><button >pagina inicial</button></p>
                 </div>
                 <div class="cadastrece">
                     <p><button>informações</button></p>
@@ -51,12 +51,12 @@
                             </button>
                         </div>
                         <div class="buttonesqueci" >
-                            <button type="button" id="recover-password-button" disabled="true"  onclick="register()">
+                            <button type="button" id="recover-password-button" disabled="true"  onclick="recoverPassword()">
                                 Esqueci minha cenha
                             </button>
                         </div>
                         <div class="buttoncadastrar">
-                            <button type="button"class="outline">
+                            <button type="button"class="outline" onclick="registergo()">
                                 cadastrar
                             </button>
                         </div>
@@ -68,7 +68,7 @@
             <div class="totalfim">
                 <div class="fimsite">
                     <div class="namesite">
-                    <a href="/html/index.html">
+                    <a href="/index/index.html">
                             <img src="/img/logo-removebg-preview.png" alt="">
                         </a>
                         <h2>
@@ -76,10 +76,10 @@
                         </h2>
                     </div>
                     <div class="buttonfim">
-                        <button type="button" disabled="true">login</button>
+                        <button type="button" onclick="gologin()" disabled="true">login</button>
                     </div>
                     <div class="buttonfim">
-                        <button type="button"  disabled="true">cadastra</button>
+                        <button type="button" onclick="goregister()" disabled="true">cadastrece</button>
                     </div>
                 </div>
                     <div class="topctotal">
@@ -186,6 +186,26 @@
     </nav>
 </body>
 
+
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDi8lLBDNVTf7XWHV3gZwlAf6Tu1FBqcUI",
+      authDomain: "gerenciamento-de-horarios.firebaseapp.com",
+      projectId: "gerenciamento-de-horarios",
+      storageBucket: "gerenciamento-de-horarios.firebasestorage.app",
+      messagingSenderId: "256628662222",
+      appId: "1:256628662222:web:ce43f921f75a1768f1959f"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+
+<script src="/js/loading.js"></script>
 <script src="/login/login.js"></script>
 <script src="/js/validations.js"></script>
 </html>

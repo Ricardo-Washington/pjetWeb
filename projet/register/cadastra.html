@@ -65,12 +65,12 @@
                   <div class="imp1">
                     <div class="imputes">
                       <h4>Nome</h4>
-                      <input id="name" type="text" placeholder="Nome">
+                      <input id="name" type="text" placeholder="Nome" aria-describedby="name-required-error" onchange="onChangeName()">
                       <div class="erro" id="name-required-error">Nome completo obrigatório!</div>
                     </div>
                     <div class="imputes">
                       <h4>Email</h4>
-                      <input id="email" type="email" placeholder="Email" onchange="onChangeEmail()">
+                      <input id="email" type="email" placeholder="Email" onchange="onChangeEmail()" >
                       <div class="erro" id="email-required-error">Email obrigatório!</div>
                       <div class="erro" id="email-invalid-error">Email inválido!</div>
                     </div>
@@ -78,13 +78,15 @@
                   <div class="imp1">
                     <div class="imputes">
                       <h4>Número de telefone</h4>
-                      <input id="phone" type="tel" placeholder="Número de telefone">
-                      <div class="erro" id="phone-error">Número de telefone obrigatório!</div>
+                      <input id="phone" type="tel" placeholder="Número de telefone" onchange="onChangePhone()">
+                      <div class="erro" id="phone-required-error">Número de telefone obrigatório!</div>
+                      <div class="erro" id="phone-invalid-error">Número de telefone invalido!</div>
                     </div>
                     <div class="imputes">
                       <h4>CPF</h4>
-                      <input id="cpf" type="text" placeholder="CPF">
-                      <div class="erro" id="cpf-error">CPF inválido! Apenas números.</div>
+                      <input id="cpf" type="text" placeholder="CPF" onchange="onChangeCpf()">
+                      <div class="erro" id="cpf-required-error">CPF obrigatorio!</div>
+                      <div class="erro" id="cpf-invalid-error">CPF inválido!</div>
                     </div>
                   </div>
                   <div class="imp1">
@@ -228,6 +230,6 @@
         </footer>
     </nav>
 </body>
-<script src="/js/validations.js"></script>
+<script src="../js/validations.js"></script>
 <script src="/register/registro.js"></script>
 </html>

@@ -1,4 +1,4 @@
-function ValidateEmail(email) {
+function validateEmail(email) {
     // Expressão regular para verificar formatos comuns de email
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);

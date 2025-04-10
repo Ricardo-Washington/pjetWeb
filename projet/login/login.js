@@ -1,3 +1,9 @@
+firebase.auth().onAuthStateChanged(function (user){
+    if(user) {
+        window.location.href = "../home/home.html";
+    }
+})
+
 function onChangeEmail() {
     toggleButtonsDisable();
     toggleEmailErrors();
@@ -86,3 +92,8 @@ const form = {
     recoverPasswordButton: () => document.getElementById("recover-password-button")
 
 }
+/*function validateEmail(email) {
+    // Expressão regular para verificar formatos comuns de email
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+}*/

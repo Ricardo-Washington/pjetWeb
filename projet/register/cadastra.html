@@ -15,7 +15,7 @@
             </div>
             <div class="infor">
                 <div class="login">
-                    <p><button>Login</button></p>
+                    <p><button onclick="gologin()">Login</button></p>
                 </div>
                 <div class="cadastrece">
                     <p><button>cadastrece</button></p>
@@ -65,12 +65,12 @@
                   <div class="imp1">
                     <div class="imputes">
                       <h4>Nome</h4>
-                      <input id="name" type="text" placeholder="Nome" aria-describedby="name-required-error" onchange="onChangeName()">
+                      <input id="name" type="text" placeholder="Nome Completo" aria-describedby="name-required-error" onchange="onChangeName()">
                       <div class="erro" id="name-required-error">Nome completo obrigatório!</div>
                     </div>
                     <div class="imputes">
                       <h4>Email</h4>
-                      <input id="email" type="email" placeholder="Email" onchange="onChangeEmail()" >
+                      <input id="email" type="email" placeholder="Seu@Email.com" onchange="onChangeEmail()" >
                       <div class="erro" id="email-required-error">Email obrigatório!</div>
                       <div class="erro" id="email-invalid-error">Email inválido!</div>
                     </div>
@@ -78,34 +78,46 @@
                   <div class="imp1">
                     <div class="imputes">
                       <h4>Número de telefone</h4>
-                      <input id="phone" type="tel" placeholder="Número de telefone" onchange="onChangePhone()">
+                      <input id="phone" type="tel" placeholder="(xx)xxxxx-xxxx" onchange="onChangePhone()">
                       <div class="erro" id="phone-required-error">Número de telefone obrigatório!</div>
                       <div class="erro" id="phone-invalid-error">Número de telefone invalido!</div>
                     </div>
                     <div class="imputes">
                       <h4>CPF</h4>
-                      <input id="cpf" type="text" placeholder="CPF" onchange="onChangeCpf()">
+                      <input id="cpf" type="text" placeholder="CPF(000.000.000-00)" onchange="onChangeCpf()">
                       <div class="erro" id="cpf-required-error">CPF obrigatorio!</div>
                       <div class="erro" id="cpf-invalid-error">CPF inválido!</div>
                     </div>
                   </div>
                   <div class="imp1">
                     <div class="imputes">
-                      <h4>Senha</h4>
-                      <input class="imppw" id="password" type="password" placeholder="Senha">
-                      <div class="erro" id="password-error">Senha obrigatória! Deve ter pelo menos 6 caracteres.</div>
+                        <div class="passwordcss">
+                            <h4>Senha</h4>
+                            <input class="imppw" id="password" type="password" placeholder="Senha" onchange="onChangePassword()">
+                            <div class="erro" id="password-required-error">
+                                Senha obrigatória! Deve ter pelo menos 6 caracteres.
+                            </div>
+                            <div class="erro" id="password-min-length-error">
+                                Deve ter pelo menos 6 caracteres.
+                            </div>
+                        </div>
                     </div>
                     <div class="imputes">
-                      <h4>Confirme a Senha</h4>
-                      <input type="password" id="confirmPassword" placeholder="Confirme a senha">
-                      <div class="erro" id="confirmPassword-error">Senha e confirmar senha devem ser iguais!</div>
+                        <h4>Confirme a Senha</h4>
+                        <input type="password" id="confirmPassword" placeholder="Confirme a senha" onchange="onChangeConfirmPassword()">
+                        <div class="erro" id="password-doesnt-match-error">
+                            Senha e confirmar senha devem ser iguais!
+                        </div>
+                        <div class="erro" id="confirm-password-Invalid-error">
+                            Confirmar senha e obrigatorio!
+                        </div>
                     </div>
                   </div>
-                  <div class="buttoncadastra">
-                    <button type="button" disabled>
-                      Cadastrar
-                    </button>
-                  </div>
+                    <div class="buttoncadastra">
+                        <button type="button" disabled="true" id="register-button" onclick="register()">
+                            Cadastrar
+                        </button>
+                    </div>                
                 </form>
               </div>
         </nav>
@@ -230,6 +242,11 @@
         </footer>
     </nav>
 </body>
-<script src="../js/validations.js"></script>
-<script src="/register/registro.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-auth-compat.js"></script>
+
+<script src="../js/firebase-init.js"></script>
+<script src="../js/go.js"></script>
+<script src="../register/registro.js"></script>
+ 
 </html>

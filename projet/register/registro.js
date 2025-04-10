@@ -1,25 +1,103 @@
+firebase.auth().onAuthStateChanged(user => {
+    if(user) {
+        window.location.href = "../home/home.html";
+    }
+})
+
+
 function onChangeEmail() {
     const email = form.email().value;
     form.emailRequiredError().style.display = email ? "none" : "block";
     form.emailInvalidError().style.display = ValidateEmail(email) ? "none" : "block";
+    toggRegisterButtonDisable();
 }
 
 function onChangeName() {
     const name = form.name().value;
     form.nameRequiredError().style.display = name ? "none" : "block";
+    toggRegisterButtonDisable();
 }
 
 function onChangePhone() {
     const phone = form.phone().value; 
     form.phoneRequiredError().style.display = phone ? "none" : "block";
     form.phoneInvalidError().style.display = validatePhoneNumber(phone) ? "none" : "block";
+    toggRegisterButtonDisable();
 }
 function onChangeCpf() {
     const cpf = form.cpf().value; 
     form.cpfRequiredError().style.display = cpf ? "none" : "block";
     form.cpfInvalidError().style.display = validateCPF(cpf) ? "none" : "block";
+    toggRegisterButtonDisable();
+}
+function onChangePassword(){
+    const password = form.password().value;
+    form.passwordRequiredError().style.display = password ? "none" : "block";
+    form.passwordMinLengthError().style.display = password.length >= 6 ? "none" : "block";
+    validarPasswordMatch();
+    toggRegisterButtonDisable();
+}
+function onChangeConfirmPassword(){
+    validarPasswordMatch();
+    toggRegisterButtonDisable();
+}
+function validarPasswordMatch(){
+    const password = form.password().value;
+    const confirmPassword = form.confirmPassword().value;
+    form.confirmPasswordDoesntMatchError().style.display = password == confirmPassword ? "none" : "block";
+}
+function toggRegisterButtonDisable(){
+   
+    form.registerButton().disabled = !isFormValid();
+}
+function isFormValid(){
+    const email = form.email().value;
+    if(!email || !ValidateEmail(email)){
+        return false;
+    }
+    const password = form.password().value;
+    if (!password || password.length < 6) {
+        return false;
+    }
+    const confirmPassword = form.confirmPassword().value;
+    if(password != confirmPassword){
+        return false;
+    }
+    const name = form.name().value;
+    if(!name){
+        return false;
+    }
+
+    const phone = form.phone().value;
+    if(!phone || !validatePhoneNumber(phone)){
+        return false;
+    }
+    const cpf = form.cpf().value;
+    if(!cpf || !validateCPF(cpf)){
+        return false;
+    }
+     return true;
 }
 
+function register() {
+    const email = form.email().value;
+    const password = form.password().value;
+    firebase.auth().createUserWithEmailAndPassword(
+        email, password
+    ).then(() => {
+       
+        window.location.href = "../home/home.html";
+    }).catch(error => {
+       
+        alert(getErrorMessage(error));
+    })
+}
+function getErrorMessage(error) {
+    if (error.code == "auth/email-already-in-use") {
+        return "Email já está em uso";
+    }
+    return error.message;
+}
 
 
 const form = {
@@ -31,8 +109,12 @@ const form = {
     nameRequiredError: () => document.getElementById('name-required-error'),
 
     password: () => document.getElementById('password'),
+    passwordRequiredError: () => document.getElementById('password-required-error'),
+    passwordMinLengthError: () => document.getElementById('password-min-length-error'),
 
     confirmPassword: () => document.getElementById('confirmPassword'),
+    confirmPasswordDoesntMatchError: () => document.getElementById('password-doesnt-match-error'),
+    confirmInvalidError: () => document.getElementById('confirm-password-Invalid-error'),
     
     phone: () => document.getElementById('phone'),
     phoneRequiredError: () => document.getElementById('phone-required-error'),
@@ -41,9 +123,11 @@ const form = {
     cpf: () => document.getElementById('cpf'),
     cpfRequiredError: () => document.getElementById('cpf-required-error'),
     cpfInvalidError: () => document.getElementById('cpf-invalid-error'),
+
+    registerButton: () => document.getElementById('register-button')
   }
 
-  function ValidateEmail(email) {
+function ValidateEmail(email) {
     // Expressão regular para verificar formatos comuns de email
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);

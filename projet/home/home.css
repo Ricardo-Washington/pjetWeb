@@ -24,15 +24,6 @@ header{
     height: auto;
     margin-left: 30px;  
 }
-.back{
-    background: #0000002d;
-    width: 40%;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.521);
-}
-
 .infor{
     display: flex;
     float: right;
@@ -80,7 +71,6 @@ header{
     padding:20px;
     float:left;
     width:57%; 
-    
 }
 .imgCortes{
     display: flex;
@@ -163,19 +153,19 @@ header{
 .fimsite{
     display: flex;
 }
-.buttonfim button{
+.buttonsab button{
     border: none;
    font-size: 15px;
    cursor: pointer;
    border-radius: 5px;
-   margin-bottom: 35px;
+   margin-bottom: 20px;
    height: 30px;
    width: auto;
    margin-right: 90px;
    margin-top: 30px;
-   font-size: 20px;
+   font-size: 18px;
 }
-.buttonfim button:hover{
+.buttonsab button:hover{
    background: #000000;
    color: #fff;
    box-shadow: 3px 3px 5px black;

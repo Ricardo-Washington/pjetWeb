@@ -5,6 +5,7 @@ body{
     margin-left: 9%;
     font-family: 'Courier New', Courier, monospace;
 }
+
 .topo{
     width: 100%;
     height: auto;
@@ -44,7 +45,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.521);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.521);  
 }
 .titutlo1{
     margin-top: 50px;
@@ -110,7 +111,6 @@ form{
     font-size: 15px;
     cursor: pointer;
     border-radius: 5px;
-    width: auto;
     height: 30px;
     margin-right: 10px;
     margin-top: 10px;
@@ -128,7 +128,6 @@ form{
     font-size: 15px;
     cursor: pointer;
     border-radius: 5px;
-    width: auto;
     height: 30px;
     margin-right: 10px;
     margin-top: 10px;
@@ -177,21 +176,21 @@ form{
 }
 .buttonfim button{
     border: none;
-   font-size: 15px;
-   cursor: pointer;
-   border-radius: 5px;
-   margin-bottom: 35px;
-   height: 30px;
-   width: auto;
-   margin-right: 90px;
-   margin-top: 30px;
-   font-size: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 35px;
+    height: 30px;
+    width: auto;
+    margin-right: 90px;
+    margin-top: 30px;
+    font-size: 20px;
 }
 .buttonfim button:hover{
-   background: #000000;
-   color: #fff;
-   box-shadow: 3px 3px 5px black;
-   transition: 250ms;
+    background: #000000;
+    color: #fff;
+    box-shadow: 3px 3px 5px black;
+    transition: 250ms;
 }
 .topctotal{
     display: flex;
@@ -214,6 +213,7 @@ form{
     display: flex;
     margin-top: 220px;
     margin-left: 20px;
+    margin-bottom: 10px;
 }
 
 .instagem img{
@@ -234,7 +234,7 @@ form{
 .youtube img{
     width: 30px;
     height: auto;
-    margin-bottom: 130px;
+    margin-bottom: 30px;
 }
 .erro{
     color: red;

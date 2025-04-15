@@ -1,10 +1,11 @@
 /* style.css */
 body {
-    font-family: sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
+    
 }
 
 .container {
@@ -50,18 +51,23 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    color: #ccc;
+    color: #4e4c4c;
 }
 
-header nav ul li a.cta {
+header nav ul li button {
     background-color: #e44d26;
     color: #fff;
-    padding: 10px 15px;
+    width: auto;
+    height: 35px;
+    margin-top: -5px;
     border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17px;
+    
 }
 
-header nav ul li a.cta:hover {
-    background-color: #c83d1a;
+header nav ul li button:hover {
+    background-color: #ca3713;
 }
 .logotop img{
     width: 60px;
@@ -72,7 +78,7 @@ header nav ul li a.cta:hover {
     background-image: url('/img/imagemdefundo.jpeg'); 
     background-size: cover;
     background-position: center;
-    color: #fff;
+    color: #fffdfd;
     padding: 100px 0;
     text-align: center;
 }

@@ -4,6 +4,6 @@ function gologin(){
 function goregister(){
     window.location.href = "/register/cadastra.html";
 }
-function goIndex(){
-    window.location.href = "/index/index.html";
+function gonewIndex(){
+    window.location.href = "/newindex/newindex.html";
 }

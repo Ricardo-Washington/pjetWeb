@@ -1,65 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamento</title>
-    <link rel="stylesheet" href="home.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index/index.css" /> 
+    
+    <title>CheckCut</title>
 </head>
 <body>
-    <header >
-        <div class="topo">
-            <div id="imglogo" >
-                <a href="/html/index.html">
-                    <img class="ing" src="/img/logo-site.jpeg" alt="logo"></a>
+    <header>
+        <div class="container">
+            <div class="logotop">
+                <a href="#home">
+                    <img src="/img/logo-site.jpeg" alt="Logo do site">
+                </a>
             </div>
-            <div class="infor">
-                <div class="login">
-                    <p><button onclick="gologin()">Perfil</button></p>
-                </div>
-                <div class="cadastrece">
-                    <p><button>Marcar</button></p>
-                </div>
-                <div class="contato">
-                    <p><button type="button" onclick="logout()">Sair</button></p>
-                </div>
-            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#agendamento" class="cta">Agende Seu Horário</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
-    <nav class="hight-aside">
-        <aside class="left">
-            <div class="colant">
-                <form action="colabora">
-                    <h2>Colaboradores</h2>
-                    <ul style="list-style-type: none;">
-                        <li>
-                            <a href="">
-                                <img class="img-colab" src="/img/colabe1.jpg" alt="">
-                                <p>dudu</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img class="img-colab"src="/img/colabe2.jpg" alt="">
-                                <p>eduardo</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img class="img-colab" src="/img/colab3.webp" alt=""></dt>
-                                <p>duda</p>
-                            </a>
-                        </li>
-                    </ul>
-                        
-                        
-                       
-                </form>
-            </div>
-        </aside>
-    </nav>
-    <main class="center">
+    <div class="bodyy">
         <nav class="bloco">
             <div class="titlenav">
                 <p>
@@ -74,11 +42,11 @@
                 </p>
             </div>
             <div class="buttonsab">
-                <button class="saiba">Agende aqui!</button>
+                <button class="saiba">Saiba mais</button>
             </div>
         </nav>
         <nav class="imgtop">
-            <img class="imginicio" src="/img/tophome.jpg">
+            <img class="imginicio" src="/img/imgcara.jpeg">
         </nav>
         <nav class="twotitle">
             <h1 class="titlet2">
@@ -86,13 +54,13 @@
             </h1>
             <div class="imgCortes">
                 <div class="c1">
-                    <img class="ft1" src="/img/midhome1.jpg" alt="cort1">
+                    <img class="ft1" src="/img/corte (1).jpeg" alt="cort1">
                 </div>
                 <div class="c2">
-                    <img class="ft2" src="/img/midhome2.jpg" alt="cort2">
+                    <img class="ft2" src="/img/corte (2).jpeg" alt="cort2">
                 </div>
                 <div class="c3">
-                    <img class="ft3" src="/img/midhome3.jpg" alt="cort3">
+                    <img class="ft3" src="/img/corte (3).jpeg" alt="cort3">
                 </div>
             </div>
             <div class="descriço">
@@ -140,10 +108,11 @@
                     </div>
                 </div>
                 <div class="imglado">
-                    <img class="imglr" src="/img/bottonhome.jpg" alt="luzes">
+                    <img src="/img/luzes (1).jpeg" alt="luzes">
                 </div>
             </div>
         </section>
+
         <nav class="problematica">
             <div class="tituloProcedimentos">
                 <h1>
@@ -151,11 +120,11 @@
                 </h1>
             </div>
             <div class="sobracelha">
-                <div class="divimg1" >
-                    <img  class="imgsobra1" src="/img/bottonlongs.jpg" alt="sobracelho1">
+                <div class="imgsobra1">
+                    <img  src="/img/sobracelha1.jpg" alt="sobracelho1">
                 </div>
-                <div  class="divimg">
-                    <img class="imgsobra2" src="/img/bottonlongs1.jpg" alt="sobracelho2">
+                <div class="imgsobra2">
+                    <img src="/img/sobracelha2.jpg" alt="sobracelho2">
                 </div>
             </div>
             <div class="divtext">
@@ -168,65 +137,70 @@
                     <p>O corte de cabelo degradê, também conhecido como fade, é um estilo popular que </br> apresenta uma transição suave do cabelo curto para o longo.</p>
                 </div>
             </div>
+
         </nav>
-        
-    </main>
-    <aside class="aside-right">
-        <h2>
-            Procedimentos Recentes
-        </h2>
-        <ul class="lista" >
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </aside>
-    <footer class="footermain">
-        <div class="totalfim">
-            <div class="fimsite">
-                <div class="namesite">
-                <p class="cor">© [Ano Atual] [Nome da Barbearia]. Todos os direitos reservados.</p>
+        <nav class="barbeiros">
+            <div class="titulocolabo">
+                <h1>
+                    Colaboradores
+                </h1>
+            </div>
+            <div class="colaborado">
+                <div class="colaborador1">
+                    <h3>
+                        gerente 
+                    </h3>
                 </div>
-                <div class="redes">
-                    <div class="youtube">
-                        <a href="https://www.youtube.com/" target="_blank">
-                            <img src="/img/youtube.png" alt="youtube">
-                        </a>
+                <div class="colaborador2">
+                    <h3>
+                        barbeiro  
+                    </h3>
+                </div>
+                <div class="colaborador3">
+                    <h3>
+                        barbeiro 
+                    </h3>
+                </div>
+            </div>
+            <div class="totalcolab">
+                <div class="colab1">
+                    <img src="/img/colabe1.jpg" alt="fotocolab">
+                    <div class="text1">
+                        <h4>nome</h4>
+                        <p>descrição</p>
                     </div>
-                    <div class="whats">
-                        <a href="https://web.whatsapp.com/" target="_blank">
-                            <img src="/img/whatsapp.png" alt="wahtsapp">
-                        </a>
+                </div>
+                <div class="colab2">
+                    <img src="/img/colabe2.jpg" alt="fotocolab">
+                    <div class="text1">
+                        <h4>nome</h4>
+                        <p>descrição</p>
                     </div>
-                    <div class="instagem">
-                        <a href="https://www.instagram.com/" target="_blank">
-                            <img src="/img/instagram.png" alt="instagram">
-                        </a>
-                    </div>
-                    <div class="facebook">
-                        <a href="https://www.facebook.com/" target="_blank">
-                            <img src="/img/logotipo-circular-do-facebook.png" alt="facebook">
-                        </a>
+                </div>
+                <div class="colab2">
+                    <img src="/img/colab3.webp" alt="fotocolab">
+                    <div class="text1">
+                        <h4>nome</h4>
+                        <p>descrição</p>
                     </div>
                 </div>
             </div>
+        </nav>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; [Ano Atual] [Nome da Barbearia]. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="#"><img src="/img/logotipo-circular-do-facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="/img/instagram.png" alt="Instagram"></a>
+                </div>
         </div>
     </footer>
-    
 </body>
-
-
-<script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-auth-compat.js"></script>
-
-<script src="../js/firebase-init.js"></script>
-
-<script src="../js/auth-guard.js"></script>
-<script src="home.js"></script>
-<script src="../js/validations.js"></script>
-<script src="../js/ go.js"></script>
-
-
+ <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-auth-compat.js"></script>
+<script src="/index/index.js"></script>
+<script src="../validations.js"></script>
+<script src="../firebase-init.js"></script>
+<script src="../js/go.js"></script>
 </html>

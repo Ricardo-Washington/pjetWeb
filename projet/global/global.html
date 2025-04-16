@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/glob.css">
+    <title>Document</title>
+</head>
+<body>
+    <header >
+        <div class="topo">
+            <div id="imglogo" >
+                <a href="/html/index.html">
+                    <img class="ing" src="/img/logo-site.jpeg" alt="logo"></a>
+            </div>
+            <div class="infor">
+                <div class="semback">
+                    <p><button onclick="gologin()">Perfil</button></p>
+                </div>
+                <div class="semback">
+                    <p><button>Marcar</button></p>
+                </div>
+                <div class="comback">
+                    <p><button type="button" onclick="logout()">Sair</button></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+            
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; [Ano Atual] [Nome da Barbearia]. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="#"><img src="/img/logotipo-circular-do-facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="/img/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="/img/youtube.png" alt="Facebook"></a>
+                <a href="#"><img src="/img/whatsapp.png" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-auth-compat.js"></script>
+
+<script src="../js/firebase-init.js"></script>
+
+<script src="../js/auth-guard.js"></script>
+<script src="home.js"></script>
+<script src="../js/validations.js"></script>
+<script src="../js/ go.js"></script>
+
+</html>

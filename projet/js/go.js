@@ -7,3 +7,9 @@ function goregister(){
 function gonewIndex(){
     window.location.href = "/newindex/newindex.html";
 }
+function goagendamento(){
+    window.location.href = "/agendamento/agendamento.html";
+}
+function goHome(){
+    window.location.href = "/home/home.html";
+}

@@ -1,11 +1,10 @@
-/* style.css */
+
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'sans-serif';
     margin: 0;
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
-    
 }
 
 .container {
@@ -15,7 +14,7 @@ body {
 }
 
 header {
-    background-color: #222;
+    background-color: #222222d5;
     color: #fff;
     padding: 1rem 0;
     position: sticky;
@@ -59,6 +58,7 @@ header nav ul li button {
     color: #fff;
     width: auto;
     height: 35px;
+    border: none;
     margin-top: -5px;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
@@ -68,6 +68,7 @@ header nav ul li button {
 
 header nav ul li button:hover {
     background-color: #ca3713;
+    color: #222;
 }
 .logotop img{
     width: 60px;
@@ -75,10 +76,10 @@ header nav ul li button:hover {
 }
 
 .hero {
-    background-image: url('/img/imagemdefundo.jpeg'); 
+    background-image: url(''); 
     background-size: cover;
     background-position: center;
-    color: #fffdfd;
+    color:  #222;
     padding: 100px 0;
     text-align: center;
 }

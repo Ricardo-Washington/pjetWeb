@@ -2,13 +2,12 @@ body{
     width: 100%;
     height: auto;
     margin: 0;
-
+    font-family: 'sans-serif';
 }
 .bodyy{
     width: 80%;
     height: auto;
     margin-left: 9%;
-    font-family: 'Courier New', Courier, monospace;
 }
 .topo{
     width: 100%;
@@ -321,25 +320,6 @@ body{
     
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -401,10 +381,7 @@ header nav ul li a.cta:hover {
     border-radius: 40px;
 }
 
-
-
-
-
+/*footer*/
 footer {
     background-color: #222;
     color: #fff;
@@ -432,4 +409,34 @@ footer .social-links img {
 
 footer .social-links img:hover {
     opacity: 1;
+}
+
+/* Adaptações para telas menores */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header h1 {
+        margin-bottom: 10px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero .container {
+        flex-direction: column;
+        text-align: center
+    }
 }

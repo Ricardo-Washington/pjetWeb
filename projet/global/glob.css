@@ -1,0 +1,158 @@
+body{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    line-height: 1.6;
+    font-family: 'sans-serif';
+}
+/*header*/
+header {
+    background-color: #222222f3;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.topo {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+header .topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ing{
+    width: 60px;
+    height: auto;
+    margin-left: 30px;
+    border-radius: 40px;  
+}
+.infor{
+    display: flex;
+    float: right;
+    margin-left: 67%;
+    margin-top: 17px;
+}
+
+/*button*/
+.semback button{
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: auto;
+    height: 30px;
+    margin-right: 10px;
+    background-color: transparent;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+}
+.semback button:hover{
+    color: #5f5c5c;
+}
+.comback button{
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: auto;
+    height: 30px;
+    margin-right: 10px;
+    background-color: #e44d26;
+    color: #fffefe;
+}
+.comback button:hover{
+    background: #c83d1a;
+    color: #000000;
+    box-shadow: 3px 3px 5px black;
+    transition: 250ms;
+}
+
+/*footer*/
+footer {
+    background-color: #222222f3;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    width: 100%;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin-left: 15%;
+}
+
+footer .social-links a {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+footer .social-links img {
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+footer .social-links img:hover {
+    opacity: 1;
+}
+
+.instagem img{
+    width: 30px;
+    height: auto;
+    margin-left: 20px;
+}
+.facebook img{
+    width: 30px;
+    height: auto;
+    margin-left: 20px;
+}
+.whats img{
+    width: 30px;
+    height: auto;
+    margin-left: 20px;
+}
+.youtube img{
+    width: 30px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+
+/* Adaptações para telas menores */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header h1 {
+        margin-bottom: 10px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero .container {
+        flex-direction: column;
+        text-align: center
+    }
+}

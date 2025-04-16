@@ -1,10 +1,83 @@
 body{
-    width: 80%;
+    width: 100%;
+    margin: 0;
+    line-height: 1.6;
+}
+.body{
     height: auto;
-    margin-left: 9%;
-    font-family: 'Courier New', Courier, monospace;
+    width: 80%;
+    font-family: 'sans-serif';
+    margin-left: 11%;
+    margin-bottom: 5%;
+}
+/*header*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px;
 }
 
+header {
+    background-color: #222222d5;
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #4e4c4c;
+}
+
+header nav ul li button {
+    background-color: #e44d26;
+    color: #fff;
+    width: auto;
+    height: 35px;
+    border: none;
+    margin-top: -5px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17px;
+    
+}
+
+header nav ul li button:hover {
+    background-color: #ca3713;
+    color: #222;
+}
+.logotop img{
+    width: 60px;
+    border-radius: 40px;
+}
 .topo{
     width: 100%;
     height: auto;
@@ -166,31 +239,7 @@ body{
     text-decoration: none;
     color: #000000;
 }
-.redes{
-    display: flex;
-    margin-top: 220px;
-    margin-left: 20px;
-}
-.instagem img{
-    width: 30px;
-    height: auto;
-    margin-left: 20px;
-}
-.facebook img{
-    width: 30px;
-    height: auto;
-    margin-left: 20px;
-}
-.whats img{
-    width: 30px;
-    height: auto;
-    margin-left: 20px;
-}
-.youtube img{
-    width: 30px;
-    height: auto;
-    margin-bottom: 130px;
-}
+
 .erro{
     color: red;
     display: none;
@@ -199,3 +248,34 @@ body{
     margin-top: 20px;
     margin-left: 5%;
 }
+
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .social-links a {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+footer .social-links img {
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+footer .social-links img:hover {
+    opacity: 1;
+}
+
+

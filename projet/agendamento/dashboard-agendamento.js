@@ -1,9 +1,3 @@
-firebase.auth().onAuthStateChanged(user => {
-    if(!user) {
-        window.location.href = "/projet/login/login.html"
-    }
-})
-
 const dataInput = document.getElementById('data');
 const horarioSelect = document.getElementById('horario');
 const barbeiroSelect = document.getElementById('barbeiro');

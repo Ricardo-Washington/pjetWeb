@@ -4,17 +4,7 @@
     width: 80%;
     height: auto;
     margin-left: 9%;
-    font-family: 'Courier New', Courier, monospace;
-}
-header{
-    background-color: #222;
-}
-.topo{
-    width: 70%;
-    margin-left: 10%;
-    height: auto;
-    display: flex;
-    
+    font-family: 'sans-serif';
 }
 .ing{
     width: 80px;
@@ -29,41 +19,6 @@ header{
     margin-left: 67%;
     margin-top: 17px;
 }
-.infor button{
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: auto;
-    height: 30px;
-    margin-right: 10px;
-    background-color: transparent;
-    color: #fff;
-    font-family: 'Courier New', Courier, monospace;
-}
-.infor button:hover{
-    background: none;
-    color: #615f5f;
-    transition: 250ms;
-}
-.contato button{
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: auto;
-    height: 30px;
-    margin-right: 10px;
-    background-color: #e44d26;
-    color: #332929;
-    font-family: 'Courier New', Courier, monospace;
-}
-.contato button:hover{
-    background: #be3613;
-    color: #000000;
-    box-shadow: 3px 3px 5px black;
-    transition: 250ms;
-}
 .back{
     background: #222222ad;
     width: 450px;
@@ -72,39 +27,9 @@ header{
     justify-content: center;
     align-items: center;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.521);  
+    margin-top: 4.6%;
 }
-.titutlo1{
-    margin-top: 50px;
-}
-.titutlo1 h1{
-    font-weight: bold;
-}
-.tituloimp{
-    justify-items: center;
-}
-.subtitle{
-    color: #3b3b3b83;
-}
-.dodisplay{
-    display: flex;
-}
-.infreferent{
-    width: 80%;
-    height: auto;
-    margin-right: 20% ;
-}
-.imgdapagina{
-    width: 80%;
-    height: auto;
-    margin-top: -60px;
-}
-.imgdapagina img{
-    width: 80%;
-    height: 110%;
-    border-radius: 8px;
-    border: 1px solid #00000049;
-    box-shadow: 2px 2px 5px #000000b0 ;
-}
+
 .imputs{
     margin-top: 3%;
     margin-bottom: 3%;
@@ -142,6 +67,7 @@ form{
     margin-top: 10px;
     width: -webkit-fill-available;
 }
+
 .buttonesqueci button:hover{
     background: #000000;
     color: #fff;
@@ -183,23 +109,7 @@ form{
     box-shadow: 3px 3px 5px black;
     transition: 250ms;
 }
-.totalfim{
-    width: 100%;
-    height: auto;
-    margin-top: 30px;
-}
-.namesite{
-    display: flex;
-    width: 100%;
-}
-.namesite img{
-    width: 100px;
-    height: auto;
-    margin-right: 10px;
-}
-.fimsite{
-    display: flex;
-}
+
 .buttonfim button{
     border: none;
     font-size: 15px;
@@ -218,60 +128,16 @@ form{
     box-shadow: 3px 3px 5px black;
     transition: 250ms;
 }
-.topctotal{
-    display: flex;
-    float: right;
-    width: 30%;
-}
-.topc{
-    margin-left: 30px;
-}
-.top1{
-    margin-bottom: 15px;
-    margin-left: 10px;
-    text-decoration: none;
-}
-.atopc1{
-    text-decoration: none;
-    color: #000000;
-}
-.redes{
-    display: flex;
-    margin-top: 220px;
-    margin-left: 20px;
-    margin-bottom: 10px;
-}
 
-.instagem img{
-    width: 30px;
-    height: auto;
-    margin-left: 20px;
-}
-.facebook img{
-    width: 30px;
-    height: auto;
-    margin-left: 20px;
-}
-.whats img{
-    width: 30px;
-    height: auto;
-    margin-left: 20px;
-}
-.youtube img{
-    width: 30px;
-    height: auto;
-    margin-bottom: 30px;
-}
 .erro{
     color: red;
     display: none;
 }
-.loading{
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    width: 100%;
-    height: 100%;
+footer{
+    margin-top: 4.6%;
 }
+
+
 
 
 /* Adaptações para telas menores */

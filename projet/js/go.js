@@ -1,15 +1,18 @@
 function gologin(){
-    window.location.href = "/login/login.html";
+    window.location.href = "/projet/login/login.html";
 }
 function goregister(){
-    window.location.href = "/register/cadastra.html";
+    window.location.href = "/projet/register/cadastra.html";
 }
 function gonewIndex(){
-    window.location.href = "/newindex/newindex.html";
+    window.location.href = "/projet/newindex/newindex.html";
 }
 function goagendamento(){
-    window.location.href = "/agendamento/agendamento.html";
+    window.location.href = "/projet/agendamento/agendamento.html";
 }
 function goHome(){
-    window.location.href = "/home/home.html";
+     window.location.href = "/projet/home/home.html";
+}
+function goAgendamento(){
+    window.location.href = "/projet/agendamento/dashboard-agendamento.html"
 }

@@ -1,6 +1,6 @@
-firebase.auth().onAuthStateChanged(function (user){
+firebase.auth().onAuthStateChanged(user =>{
     if(user) {
-        window.location.href = "../home/home.html";
+        window.location.href = "/projet/agendamento/dashboard-agendamento.html";
     }
 })
 
@@ -24,7 +24,7 @@ function recoverPassword() {
 
 function login() {
     firebase.auth().signInWithEmailAndPassword(form.email().value, form.password().value).then(response => {
-        window.location.href = "/home/home.html";
+        window.location.href = "/projet/home/home.html";
     }).catch(error => {
         alert(getErrorMessege(error));
     });
@@ -38,7 +38,7 @@ function getErrorMessege(error){
 }
 
 function registergo() {
-    window.location.href = "/register/cadastra.html";
+    window.location.href = "/projet/register/cadastra.html";
 }
 
 function toggleEmailErrors() {

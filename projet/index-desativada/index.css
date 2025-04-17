@@ -5,9 +5,9 @@ body{
     font-family: 'sans-serif';
 }
 .bodyy{
-    width: 80%;
+    width: 70%;
     height: auto;
-    margin-left: 9%;
+    margin-left: 17%;
 }
 .topo{
     width: 100%;
@@ -36,7 +36,7 @@ body{
     margin-right: 10px;
 }
 .infor button:hover{
-    background: #000000;
+    background: #222;
     color: #fff;
     box-shadow: 3px 3px 5px black;
     transition: 250ms;
@@ -60,7 +60,7 @@ body{
     width: auto;
 }
 .buttonsab button:hover{
-    background: #000000;
+    background: #222;
     color: #fff;
     box-shadow: 3px 3px 5px black;
     transition: 250ms;

@@ -11,10 +11,10 @@ function validatePhoneNumber(phone) {
     return regex.test(phone);
 }
 function gologin(){
-    window.location.href = "/login/login.html";
+    window.location.href = "/projet/login/login.html";
 }
 function goregister(){
-    window.location.href = "/register/cadastra.html";
+    window.location.href = "/projet/register/cadastra.html";
 }
 function validateCPF(cpf) {
     // Remove caracteres especiais (pontos e traços)

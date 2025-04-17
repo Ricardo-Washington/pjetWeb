@@ -10,12 +10,15 @@ function validatePhoneNumber(phone) {
 
     return regex.test(phone);
 }
-function gologin(){
-    window.location.href = "/login/login.html";
+
+function gologin() {
+    window.location.href = "/projet/login/login.html";
 }
-function goregister(){
-    window.location.href = "/register/cadastra.html";
+
+function goregister() {
+    window.location.href = "/projet/register/cadastra.html";
 }
+
 function validateCPF(cpf) {
     // Remove caracteres especiais (pontos e traços)
     cpf = cpf.replace(/[^\d]/g, '');
@@ -47,4 +50,3 @@ function validateCPF(cpf) {
         secondCheckDigit === parseInt(cpf.charAt(10))
     );
 }
-

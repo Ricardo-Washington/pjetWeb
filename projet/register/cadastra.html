@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/register/cadastrar.css">
+    <link rel="stylesheet" href="/projet/register/cadastrar.css">
     <title>cadastra</title>
 </head>
+
 <body>
     <header>
         <div class="container">
             <div class="logotop">
                 <a href="#home">
-                    <img src="/img/logo-site.jpeg" alt="Logo do site">
+                    <img src="/projet/img/logo-site.jpeg" alt="Logo do site">
                 </a>
             </div>
             <nav>
                 <ul>
-                    <li><a href="/newindex/newindex.html">Home</a></li>
+                    <li><a href="/projet
+                        
+                        
+                        
+                        /newindex/newindex.html">Home</a></li>
                     <li><a href="#contato">Contato</a></li>
                     <li><button type="button" onclick="gologin()">Loguin</button></li>
                 </ul>
@@ -39,14 +45,9 @@
                 <div class="dodisplay">
                     <div class="infreferent">
                         <p>
-                            As informações pessoais são cruciais em um cadastro de usuário porque garantem a 
-                            autenticidade e segurança do acesso à plataforma. Elas permitem identificar e 
-                            distinguir cada usuário, prevenindo fraudes e acessos não autorizados. Além disso, 
-                            informações corretas facilitam a comunicação eficiente entre o serviço e o 
-                            usuário, oferecendo suporte adequado e personalizado. Dados precisos também 
-                            ajudam na recuperação de contas e na prestação de serviços de forma segura e eficaz. 
-                            Em síntese, proteger essas informações é vital para manter a integridade e a 
-                            confiabilidade do sistema.
+                            As informações pessoais são cruciais em um cadastro de usuário porque garantem a autenticidade e segurança do acesso à plataforma. Elas permitem identificar e distinguir cada usuário, prevenindo fraudes e acessos não autorizados. Além disso, informações
+                            corretas facilitam a comunicação eficiente entre o serviço e o usuário, oferecendo suporte adequado e personalizado. Dados precisos também ajudam na recuperação de contas e na prestação de serviços de forma segura e eficaz.
+                            Em síntese, proteger essas informações é vital para manter a integridade e a confiabilidade do sistema.
                         </p>
                     </div>
                     <div class="imgdapagina">
@@ -57,80 +58,80 @@
             <nav class="imputs">
                 <div class="back">
                     <form class="register">
-                    <div class="tituloimp">
-                        <h1>Cadastro</h1>
-                    </div>
-                    <div class="imp1">
-                        <div class="imputes">
-                        <h4>Nome</h4>
-                        <input id="name" type="text" placeholder="Nome Completo" aria-describedby="name-required-error" onchange="onChangeName()">
-                        <div class="erro" id="name-required-error">Nome completo obrigatório!</div>
+                        <div class="tituloimp">
+                            <h1>Cadastro</h1>
                         </div>
-                        <div class="imputes">
-                        <h4>Email</h4>
-                        <input id="email" type="email" placeholder="Seu@Email.com" onchange="onChangeEmail()" >
-                        <div class="erro" id="email-required-error">Email obrigatório!</div>
-                        <div class="erro" id="email-invalid-error">Email inválido!</div>
+                        <div class="imp1">
+                            <div class="imputes">
+                                <h4>Nome</h4>
+                                <input id="name" type="text" placeholder="Nome Completo" aria-describedby="name-required-error" onchange="onChangeName()">
+                                <div class="erro" id="name-required-error">Nome completo obrigatório!</div>
+                            </div>
+                            <div class="imputes">
+                                <h4>Email</h4>
+                                <input id="email" type="email" placeholder="Seu@Email.com" onchange="onChangeEmail()">
+                                <div class="erro" id="email-required-error">Email obrigatório!</div>
+                                <div class="erro" id="email-invalid-error">Email inválido!</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="imp1">
-                        <div class="imputes">
-                        <h4>Número de telefone</h4>
-                        <input id="phone" type="tel" placeholder="(xx)xxxxx-xxxx" onchange="onChangePhone()">
-                        <div class="erro" id="phone-required-error">Número de telefone obrigatório!</div>
-                        <div class="erro" id="phone-invalid-error">Número de telefone invalido!</div>
+                        <div class="imp1">
+                            <div class="imputes">
+                                <h4>Número de telefone</h4>
+                                <input id="phone" type="tel" placeholder="(xx)xxxxx-xxxx" onchange="onChangePhone()">
+                                <div class="erro" id="phone-required-error">Número de telefone obrigatório!</div>
+                                <div class="erro" id="phone-invalid-error">Número de telefone invalido!</div>
+                            </div>
+                            <div class="imputes">
+                                <h4>CPF</h4>
+                                <input id="cpf" type="text" placeholder="CPF(000.000.000-00)" onchange="onChangeCpf()">
+                                <div class="erro" id="cpf-required-error">CPF obrigatorio!</div>
+                                <div class="erro" id="cpf-invalid-error">CPF inválido!</div>
+                            </div>
                         </div>
-                        <div class="imputes">
-                        <h4>CPF</h4>
-                        <input id="cpf" type="text" placeholder="CPF(000.000.000-00)" onchange="onChangeCpf()">
-                        <div class="erro" id="cpf-required-error">CPF obrigatorio!</div>
-                        <div class="erro" id="cpf-invalid-error">CPF inválido!</div>
-                        </div>
-                    </div>
-                    <div class="imp1">
-                        <div class="imputes">
-                            <div class="passwordcss">
-                                <h4>Senha</h4>
-                                <input class="imppw" id="password" type="password" placeholder="Senha" onchange="onChangePassword()">
-                                <div class="erro" id="password-required-error">
-                                    Senha obrigatória! Deve ter pelo menos 6 caracteres.
+                        <div class="imp1">
+                            <div class="imputes">
+                                <div class="passwordcss">
+                                    <h4>Senha</h4>
+                                    <input class="imppw" id="password" type="password" placeholder="Senha" onchange="onChangePassword()">
+                                    <div class="erro" id="password-required-error">
+                                        Senha obrigatória! Deve ter pelo menos 6 caracteres.
+                                    </div>
+                                    <div class="erro" id="password-min-length-error">
+                                        Deve ter pelo menos 6 caracteres.
+                                    </div>
                                 </div>
-                                <div class="erro" id="password-min-length-error">
-                                    Deve ter pelo menos 6 caracteres.
+                            </div>
+                            <div class="imputes">
+                                <h4>Confirme a Senha</h4>
+                                <input type="password" id="confirmPassword" placeholder="Confirme a senha" onchange="onChangeConfirmPassword()">
+                                <div class="erro" id="password-doesnt-match-error">
+                                    Senha e confirmar senha devem ser iguais!
+                                </div>
+                                <div class="erro" id="confirm-password-Invalid-error">
+                                    Confirmar senha e obrigatorio!
                                 </div>
                             </div>
                         </div>
-                        <div class="imputes">
-                            <h4>Confirme a Senha</h4>
-                            <input type="password" id="confirmPassword" placeholder="Confirme a senha" onchange="onChangeConfirmPassword()">
-                            <div class="erro" id="password-doesnt-match-error">
-                                Senha e confirmar senha devem ser iguais!
-                            </div>
-                            <div class="erro" id="confirm-password-Invalid-error">
-                                Confirmar senha e obrigatorio!
-                            </div>
-                        </div>
-                    </div>
                         <div class="buttoncadastra">
                             <button type="button" disabled="true" id="register-button" onclick="register()">
                                 Cadastrar
                             </button>
-                        </div>                
+                        </div>
                     </form>
                 </div>
             </nav>
-        </div>
-        <footer>
-            <div class="container">
-                <p>&copy; [Ano Atual] [Nome da Barbearia]. Todos os direitos reservados.</p>
-                <div class="social-links">
-                    <a href="#"><img src="/img/logotipo-circular-do-facebook.png" alt="Facebook"></a>
-                    <a href="#"><img src="/img/instagram.png" alt="Instagram"></a>
-                    <a href="#"><img src="/img/youtube.png" alt="Facebook"></a>
-                    <a href="#"><img src="/img/whatsapp.png" alt="Instagram"></a>
-                </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; [Ano Atual] [Nome da Barbearia]. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="#"><img src="/img/logotipo-circular-do-facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="/img/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="/img/youtube.png" alt="Facebook"></a>
+                <a href="#"><img src="/img/whatsapp.png" alt="Instagram"></a>
             </div>
-        </footer>
+        </div>
+    </footer>
     </nav>
 </body>
 <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app-compat.js"></script>
@@ -139,5 +140,5 @@
 <script src="../js/firebase-init.js"></script>
 <script src="../js/go.js"></script>
 <script src="../register/registro.js"></script>
- 
+
 </html>

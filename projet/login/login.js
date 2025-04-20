@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         window.location.href = "../home/home.html";
+=======
+firebase.auth().onAuthStateChanged(user =>{
+    if(user) {
+        window.location.href = "/projet/agendamento/dashboard-agendamento.html";
+>>>>>>> 3842a2f05a2aab63d8b6879f8d3f00d8b7a7f875
     }
 })
 

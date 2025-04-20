@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Dashboard - [Nome da Sua Barbearia]</title>
+    <link rel="stylesheet" href="dashboard-agendamento.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="logo-cliente.png" alt="Logo da Barbearia">
+                <span>[Nome da Sua Barbearia]</span>
+            </div>
+            <nav class="menu">
+                <a href="#" class="active"><i class="fas fa-calendar-check"></i> Agendar Horário</a>
+                <a href="#"><i class="fas fa-history"></i> Meus Agendamentos</a>
+                <a href="#"><i class="fas fa-user-circle"></i> Meu Perfil</a>
+                <a href="/projet/home/home.html"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>Agendar Horário</h1>
+                <div class="user-greeting">
+                    Olá, [Nome do Cliente]!
+                </div>
+            </header>
+
+            <section class="scheduling-section">
+                <h2>Selecione os Detalhes do seu Agendamento</h2>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="servico">Serviço:</label>
+                        <select id="servico" name="servico" required>
+                            <option value="">Selecione o serviço</option>
+                            <option value="corte-cabelo">Corte de Cabelo</option>
+                            <option value="barba">Barba</option>
+                            <option value="sobrancelha">Sobrancelha</option>
+                            <option value="progressiva">Progressiva</option>
+                            <option value="descolorir-cabelo">Descolorir Cabelo</option>
+                            </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="barbeiro">Barbeiro:</label>
+                        <select id="barbeiro" name="barbeiro" required>
+                            <option value="">Selecione o barbeiro</option>
+                            <option value="barbeiro-1">[Nome do Barbeiro 1]</option>
+                            <option value="barbeiro-2">[Nome do Barbeiro 2]</option>
+                            </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data">Data:</label>
+                        <input type="date" id="data" name="data" required onchange="loadAvailableTimes(this.value)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="horario">Horário Disponível:</label>
+                        <select id="horario" name="horario" required disabled>
+                            <option value="">Selecione o horário</option>
+                            </select>
+                        <p class="aviso-horario" style="display: none; color: red;">Não há horários disponíveis para esta data e barbeiro.</p>
+                    </div>
+                </div>
+
+                <button type="button" class="book-appointment-button" disabled>Reservar Horário</button>
+            </section>
+
+            <section class="upcoming-appointments">
+                <h2>Próximos Agendamentos</h2>
+                <div class="appointment-card">
+                    <div class="appointment-info">
+                        <span class="service">Corte de Cabelo</span>
+                        <span class="date"><i class="far fa-calendar"></i> 20/04/2025</span>
+                        <span class="time"><i class="far fa-clock"></i> 10:00</span>
+                        <span class="barber"><i class="fas fa-user-tie"></i> [Nome do Barbeiro 1]</span>
+                    </div>
+                    <button class="cancel-button"><i class="fas fa-times"></i> Cancelar</button>
+                </div>
+                <div class="appointment-card">
+                    <div class="appointment-info">
+                        <span class="service">Barba</span>
+                        <span class="date"><i class="far fa-calendar"></i> 25/04/2025</span>
+                        <span class="time"><i class="far fa-clock"></i> 15:30</span>
+                        <span class="barber"><i class="fas fa-user-tie"></i> [Nome do Barbeiro 2]</span>
+                    </div>
+                    <button class="cancel-button"><i class="fas fa-times"></i> Cancelar</button>
+                </div>
+                </section>
+        </main>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</body>
+      <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app-compat.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-auth-compat.js"></script>
+      <script src="/projet/js/firebase-init.js"></script>
+
+
+      <script src="dashboard-agendamento.js"></script>
+      <script src="../js/auth-guard.js"></script>
+      <script src="/projet/js/go.js"></script>
+      <script src="/projet/js/validations.js"></script>
+      
+</html>

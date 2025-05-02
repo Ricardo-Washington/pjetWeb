@@ -1,11 +1,14 @@
-body{
+body {
     width: 100%;
     height: auto;
     margin: 0;
     line-height: 1.6;
     font-family: 'sans-serif';
 }
+
+
 /*header*/
+
 header {
     background-color: #222222f3;
     color: #fff;
@@ -13,6 +16,7 @@ header {
     top: 0;
     z-index: 10;
 }
+
 .topo {
     max-width: 1200px;
     margin: 0 auto;
@@ -25,21 +29,24 @@ header .topo {
     align-items: center;
 }
 
-.ing{
+.ing {
     width: 60px;
     height: auto;
     margin-left: 30px;
-    border-radius: 40px;  
+    border-radius: 40px;
 }
-.infor{
+
+.infor {
     display: flex;
     float: right;
     margin-left: 67%;
     margin-top: 17px;
 }
 
+
 /*button*/
-.semback button{
+
+.semback button {
     border: none;
     font-size: 18px;
     cursor: pointer;
@@ -50,10 +57,12 @@ header .topo {
     background-color: transparent;
     color: #fff;
 }
-.semback button:hover{
+
+.semback button:hover {
     color: #5f5c5c;
 }
-.comback button{
+
+.comback button {
     border: none;
     font-size: 18px;
     cursor: pointer;
@@ -64,14 +73,17 @@ header .topo {
     background-color: #e44d26;
     color: #fffefe;
 }
-.comback button:hover{
+
+.comback button:hover {
     background: #c83d1a;
     color: #000000;
     box-shadow: 3px 3px 5px black;
     transition: 250ms;
 }
 
+
 /*footer*/
+
 footer {
     background-color: #222222f3;
     color: #fff;
@@ -104,22 +116,25 @@ footer .social-links img:hover {
     opacity: 1;
 }
 
-.instagem img{
+.instagem img {
     width: 30px;
     height: auto;
     margin-left: 20px;
 }
-.facebook img{
+
+.facebook img {
     width: 30px;
     height: auto;
     margin-left: 20px;
 }
-.whats img{
+
+.whats img {
     width: 30px;
     height: auto;
     margin-left: 20px;
 }
-.youtube img{
+
+.youtube img {
     width: 30px;
     height: auto;
     margin-bottom: 30px;
@@ -127,29 +142,25 @@ footer .social-links img:hover {
 
 
 /* Adaptações para telas menores */
+
 @media (max-width: 768px) {
     .container {
         padding: 15px;
     }
-
     header .container {
         flex-direction: column;
         align-items: flex-start;
     }
-
     header h1 {
         margin-bottom: 10px;
     }
-
     header nav ul {
         flex-direction: column;
         width: 100%;
     }
-
     header nav ul li {
         margin: 10px 0;
     }
-
     .hero .container {
         flex-direction: column;
         text-align: center

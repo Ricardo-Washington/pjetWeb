@@ -1,9 +1,9 @@
-                .body {
+.body {
     margin: 0;
     width: 80%;
     height: auto;
     margin-left: 9%;
-    <<<<<<< HEAD
+    font-family: 'sans-serif';
 }
 
 header {
@@ -15,8 +15,7 @@ header {
     margin-left: 10%;
     height: auto;
     display: flex;
-    =======font-family: 'sans-serif';
-    >>>>>>>3842a2f05a2aab63d8b6879f8d3f00d8b7a7f875
+    font-family: 'sans-serif';
 }
 
 .ing {
@@ -34,7 +33,7 @@ header {
     margin-top: 17px;
 }
 
-<<<<<<< HEAD .infor button {
+.infor button {
     border: none;
     font-size: 18px;
     cursor: pointer;
@@ -73,247 +72,287 @@ header {
 }
 
 .back {
-    =======.back {
-        >>>>>>>3842a2f05a2aab63d8b6879f8d3f00d8b7a7f875 background: #222222ad;
-        width: 450px;
-        border-radius: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        <<<<<<< HEAD box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.521);
+    background: #222222ad;
+    width: 450px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.521);
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.titutlo1 {
+    margin-top: 50px;
+}
+
+.titutlo1 h1 {
+    font-weight: bold;
+}
+
+.tituloimp {
+    justify-items: center;
+}
+
+.subtitle {
+    color: #3b3b3b83;
+}
+
+.dodisplay {
+    display: flex;
+}
+
+.infreferent {
+    width: 80%;
+    height: auto;
+    margin-right: 20%;
+}
+
+.imgdapagina {
+    width: 80%;
+    height: auto;
+    margin-top: -60px;
+}
+
+.imgdapagina img {
+    width: 80%;
+    height: 110%;
+    border-radius: 8px;
+    border: 1px solid #00000049;
+    box-shadow: 2px 2px 5px #000000b0;
+}
+
+.imputs {
+    margin-top: 4.6%;
+}
+
+.imputs {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    width: 400px;
+}
+
+.imp1 {
+    display: flex;
+}
+
+.imputes {
+    margin-right: 30px;
+}
+
+.imppw {
+    margin-bottom: 28px;
+}
+
+.imputes input {
+    padding: 13px;
+    width: -webkit-fill-available;
+}
+
+.buttoncadastrar {
+    margin-bottom: 10%;
+}
+
+.buttonesqueci button {
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 30px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: -webkit-fill-available;
+}
+
+.buttonesqueci button:hover {
+    background: #000000;
+    color: #fff;
+    box-shadow: 3px 3px 5px black;
+    transition: 250ms;
+}
+
+.buttonlogin button {
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 30px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: -webkit-fill-available;
+}
+
+.buttonlogin button:hover {
+    background: #000000;
+    color: #fff;
+    box-shadow: 3px 3px 5px black;
+    transition: 250ms;
+}
+
+.buttoncadastrar button {
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: auto;
+    height: 30px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: -webkit-fill-available;
+}
+
+.buttoncadastrar button:hover {
+    background: #000000;
+    color: #fff;
+    box-shadow: 3px 3px 5px black;
+    transition: 250ms;
+}
+
+.totalfim {
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+}
+
+.namesite {
+    display: flex;
+    width: 100%;
+}
+
+.namesite img {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.fimsite {
+    display: flex;
+}
+
+.buttonfim button {
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 35px;
+    height: 30px;
+    width: auto;
+    margin-right: 90px;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.buttonfim button:hover {
+    background: #000000;
+    color: #fff;
+    box-shadow: 3px 3px 5px black;
+    transition: 250ms;
+}
+
+.topctotal {
+    display: flex;
+    float: right;
+    width: 30%;
+}
+
+.topc {
+    margin-left: 30px;
+}
+
+.top1 {
+    margin-bottom: 15px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.atopc1 {
+    text-decoration: none;
+    color: #000000;
+}
+
+.redes {
+    display: flex;
+    margin-top: 220px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.instagem img {
+    width: 30px;
+    height: auto;
+    margin-left: 20px;
+}
+
+.facebook img {
+    width: 30px;
+    height: auto;
+    margin-left: 20px;
+}
+
+.whats img {
+    width: 30px;
+    height: auto;
+    margin-left: 20px;
+}
+
+.youtube img {
+    width: 30px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.erro {
+    color: red;
+    display: none;
+}
+
+.loading {
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.erro {
+    color: red;
+    display: none;
+}
+
+footer {
+    margin-top: 4.6%;
+}
+/* Adaptações para telas menores */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
     }
-    .titutlo1 {
-        margin-top: 50px;
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
     }
-    .titutlo1 h1 {
-        font-weight: bold;
+    header h1 {
+        margin-bottom: 10px;
     }
-    .tituloimp {
-        justify-items: center;
+    header nav ul {
+        flex-direction: column;
+        width: 100%;
     }
-    .subtitle {
-        color: #3b3b3b83;
+    header nav ul li {
+        margin: 10px 0;
     }
-    .dodisplay {
-        display: flex;
+    .hero .container {
+        flex-direction: column;
+        text-align: center
     }
-    .infreferent {
-        width: 80%;
-        height: auto;
-        margin-right: 20%;
-    }
-    .imgdapagina {
-        width: 80%;
-        height: auto;
-        margin-top: -60px;
-    }
-    .imgdapagina img {
-        width: 80%;
-        height: 110%;
-        border-radius: 8px;
-        border: 1px solid #00000049;
-        box-shadow: 2px 2px 5px #000000b0;
-    }
-    .imputs {
-        =======box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.521);
-        margin-top: 4.6%;
-    }
-    .imputs {
-        >>>>>>>3842a2f05a2aab63d8b6879f8d3f00d8b7a7f875 margin-top: 3%;
-        margin-bottom: 3%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    form {
-        width: 400px;
-    }
-    .imp1 {
-        display: flex;
-    }
-    .imputes {
-        margin-right: 30px;
-    }
-    .imppw {
-        margin-bottom: 28px;
-    }
-    .imputes input {
-        padding: 13px;
-        width: -webkit-fill-available;
-    }
-    .buttoncadastrar {
-        margin-bottom: 10%;
-    }
-    .buttonesqueci button {
-        border: none;
-        background-color: transparent;
-        font-size: 15px;
-        cursor: pointer;
-        border-radius: 5px;
-        height: 30px;
-        margin-right: 10px;
-        margin-top: 10px;
-        width: -webkit-fill-available;
-    }
-    <<<<<<< HEAD .buttonesqueci button:hover {
-        =======.buttonesqueci button:hover {
-            >>>>>>>3842a2f05a2aab63d8b6879f8d3f00d8b7a7f875 background: #000000;
-            color: #fff;
-            box-shadow: 3px 3px 5px black;
-            transition: 250ms;
-        }
-        .buttonlogin button {
-            border: none;
-            background-color: transparent;
-            font-size: 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            height: 30px;
-            margin-right: 10px;
-            margin-top: 10px;
-            width: -webkit-fill-available;
-        }
-        .buttonlogin button:hover {
-            background: #000000;
-            color: #fff;
-            box-shadow: 3px 3px 5px black;
-            transition: 250ms;
-        }
-        .buttoncadastrar button {
-            border: none;
-            background-color: transparent;
-            font-size: 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            width: auto;
-            height: 30px;
-            margin-right: 10px;
-            margin-top: 10px;
-            width: -webkit-fill-available;
-        }
-        .buttoncadastrar button:hover {
-            background: #000000;
-            color: #fff;
-            box-shadow: 3px 3px 5px black;
-            transition: 250ms;
-        }
-        <<<<<<< HEAD .totalfim {
-            width: 100%;
-            height: auto;
-            margin-top: 30px;
-        }
-        .namesite {
-            display: flex;
-            width: 100%;
-        }
-        .namesite img {
-            width: 100px;
-            height: auto;
-            margin-right: 10px;
-        }
-        .fimsite {
-            display: flex;
-        }
-        .buttonfim button {
-            =======.buttonfim button {
-                >>>>>>>3842a2f05a2aab63d8b6879f8d3f00d8b7a7f875 border: none;
-                font-size: 15px;
-                cursor: pointer;
-                border-radius: 5px;
-                margin-bottom: 35px;
-                height: 30px;
-                width: auto;
-                margin-right: 90px;
-                margin-top: 30px;
-                font-size: 20px;
-            }
-            .buttonfim button:hover {
-                background: #000000;
-                color: #fff;
-                box-shadow: 3px 3px 5px black;
-                transition: 250ms;
-            }
-            <<<<<<< HEAD .topctotal {
-                display: flex;
-                float: right;
-                width: 30%;
-            }
-            .topc {
-                margin-left: 30px;
-            }
-            .top1 {
-                margin-bottom: 15px;
-                margin-left: 10px;
-                text-decoration: none;
-            }
-            .atopc1 {
-                text-decoration: none;
-                color: #000000;
-            }
-            .redes {
-                display: flex;
-                margin-top: 220px;
-                margin-left: 20px;
-                margin-bottom: 10px;
-            }
-            .instagem img {
-                width: 30px;
-                height: auto;
-                margin-left: 20px;
-            }
-            .facebook img {
-                width: 30px;
-                height: auto;
-                margin-left: 20px;
-            }
-            .whats img {
-                width: 30px;
-                height: auto;
-                margin-left: 20px;
-            }
-            .youtube img {
-                width: 30px;
-                height: auto;
-                margin-bottom: 30px;
-            }
-            .erro {
-                color: red;
-                display: none;
-            }
-            .loading {
-                background: rgba(0, 0, 0, 0.5);
-                display: flex;
-                width: 100%;
-                height: 100%;
-                =======.erro {
-                    color: red;
-                    display: none;
-                }
-                footer {
-                    margin-top: 4.6%;
-                    >>>>>>>3842a2f05a2aab63d8b6879f8d3f00d8b7a7f875
-                }
-                /* Adaptações para telas menores */
-                @media (max-width: 768px) {
-                    .container {
-                        padding: 15px;
-                    }
-                    header .container {
-                        flex-direction: column;
-                        align-items: flex-start;
-                    }
-                    header h1 {
-                        margin-bottom: 10px;
-                    }
-                    header nav ul {
-                        flex-direction: column;
-                        width: 100%;
-                    }
-                    header nav ul li {
-                        margin: 10px 0;
-                    }
-                    .hero .container {
-                        flex-direction: column;
-                        text-align: center
-                    }
-                }
+}

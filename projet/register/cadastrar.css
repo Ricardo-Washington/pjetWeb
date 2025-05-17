@@ -124,6 +124,9 @@ header nav ul li button:hover {
 }
 .titutlo1 h1{
     font-weight: bold;
+    font-size: 35px;
+    color: #e44d26;
+    margin-left: 100px;
 }
 .subtitle{
     color: #3b3b3b83;

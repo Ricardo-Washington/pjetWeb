@@ -34,7 +34,7 @@ header .topo {
 }
 
 .ing{
-    width: 60px;
+    width: 10px;
     height: auto;
     margin-left: 30px;
     border-radius: 40px;  
@@ -45,8 +45,22 @@ header .topo {
     margin-left: 67%;
     margin-top: 17px;
 }
+.buttonMarca{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    width: auto;
+    height: 20px;
+}
 
 /* aside */
+
+.left{
+    display: block;
+    unicode-bidi: isolate;
+}
+.ulbt{
+    width: 100%;
+}
 aside{
     width:17%;
     height: max-content;
@@ -54,20 +68,6 @@ aside{
     float: left;
     padding: 20px;
 }
-.left{
-    background-color:#00000017;    
-    box-shadow: 2px 2px 5px #0000001e ;
-    border-radius: 8px;  
-}
-
-.decoret{
-    text-decoration: none;
-    color: #000;
-    display: flex;
-    margin-bottom: 20px;
-}
-
-
 .img-colab{
     border-radius: 150px;
     width: 80px;
@@ -75,8 +75,26 @@ aside{
     margin-right: 15px;
 }
 
-
+.ulbt{
+    margin: 0;
+    padding: 0;
+}
+.left{
+    background-color: #222222f3;
+    color: #fff;
+    padding: 30px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 2500px;
+}
+.colabora form {
+    flex-direction: column;
+    align-items : center;
+}
 /*apartir daqui e o main*/
+
 .center{
     background-color:#f1f1f1;
     padding:20px;

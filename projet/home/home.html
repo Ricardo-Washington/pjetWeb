@@ -5,29 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendamento</title>
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="/projet/global/glob.css">
+    <link rel="stylesheet" href="/home/home.css">
+    <link rel="stylesheet" href="/global/glob.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
     <header>
         <div class="topo">
-<<<<<<< HEAD
             <div id="imglogo">
-                <a href="/projet/newindex/newindex.html">
-=======
-            <div id="imglogo" >
-                <a href="/projet/html/index.html">
->>>>>>> 3842a2f05a2aab63d8b6879f8d3f00d8b7a7f875
-                    <img class="ing" src="/projet/img/logo-site.jpeg" alt="logo"></a>
+                <a href="/newindex/newindex.html">
+                    <img class="ing" src="/img/logo-site.jpeg" alt="logo"></a>
             </div>
             <div class="infor">
                 <div class="semback">
-                    <p><button type="button" onclick="gologin()">Perfil</button></p>
+                    <p><button onclick="gologin()">Perfil</button></p>
                 </div>
                 <div class="semback">
-                    <p><button type="button" onclick="goAgendamento()">Marcar</button></p>
+                    <p><button onclick="godas()">Marcar</button></p>
                 </div>
                 <div class="comback">
                     <p><button type="button" onclick="logout()">Sair</button></p>
@@ -35,36 +31,35 @@
             </div>
         </div>
     </header>
-    <nav class="hight-aside">
+    <nav class="hight-aside sidebar">
         <aside class="left">
             <div class="colant">
                 <form action="colabora">
-                    <h2>
-                        Escolha o proficional
-                    </h2>
-                    <ul style="list-style-type: none;">
+                    <img class="img-colab" src="/img/colabe1.jpg" alt="foto do usuario">
+                    <h1>
+                        [Nome do usuario]
+                    </h1>
+                    <ul class="ulbt" style="list-style-type: none;">
                         <li>
-                            <a class="decoret" href="/projet/agendamento/agendamento.html">
-                                <img class="img-colab" src="/projet/img/colabe1.jpg" alt="foto de colaborador">
-                                <p>dudu</p>
-                            </a>
+                            <button>
+                                <i class="fas fa-calendar-check">
+                                    Agendar horario
+                                </i>
+                            </button>
                         </li>
                         <li>
-                            <a class="decoret" href="">
-<<<<<<< HEAD
-                                <img class="img-colab" src="/projet/img/colabe2.jpg" alt="foto de colaborador">
-                                <p> eduardo</p>
-=======
-                                <img class="img-colab"src="/projet/img/colabe2.jpg" alt="foto de colaborador">
-                               <p> eduardo</p>
->>>>>>> 3842a2f05a2aab63d8b6879f8d3f00d8b7a7f875
-                            </a>
+                            <button>
+                                <i class="fas fa-history">
+                                    Meus Agendamentos
+                                </i>
+                            </button>
                         </li>
                         <li>
-                            <a class="decoret" href="">
-                                <img class="img-colab" src="/projet/img/colab3.webp" alt="foto de colaborador">
-                                <p>duda</p>
-                            </a>
+                            <button>
+                                <i class="fas fa-sign-out-alt">
+                                    Sair
+                                </i>
+                            </button>
                         </li>
                     </ul>
                 </form>
@@ -85,10 +80,14 @@
                     Este site é uma plataforma para agendamento de horários na barbearia, onde os clientes podem reservar serviços facilmente online. Oferece uma interface intuitiva e informações detalhadas sobre os serviços disponíveis.
                 </p>
             </div>
-
+            <div class="comback buttonMarca">
+                <button type="button" placeholder="Agendamento">
+                    Faça seu agendamento
+                </button>
+            </div>
         </nav>
         <nav class="imgtop">
-            <img class="imginicio" src="/projet/img/tophome.jpg">
+            <img class="imginicio" src="/img/tophome.jpg">
         </nav>
         <nav class="twotitle">
             <h1 class="titlet2">
@@ -96,13 +95,13 @@
             </h1>
             <div class="imgCortes">
                 <div class="c1">
-                    <img class="ft1" src="/projet/img/midhome1.jpg" alt="cort1">
+                    <img class="ft1" src="/img/midhome1.jpg" alt="cort1">
                 </div>
                 <div class="c2">
-                    <img class="ft2" src="/projet/img/midhome2.jpg" alt="cort2">
+                    <img class="ft2" src="/img/midhome2.jpg" alt="cort2">
                 </div>
                 <div class="c3">
-                    <img class="ft3" src="/projet/img/midhome3.jpg" alt="cort3">
+                    <img class="ft3" src="/img/midhome3.jpg" alt="cort3">
                 </div>
             </div>
             <div class="descriço">
@@ -156,7 +155,7 @@
                     </div>
                 </div>
                 <div class="imglado">
-                    <img class="imglr" src="/projet/img/bottonhome.jpg" alt="luzes">
+                    <img class="imglr" src="/img/bottonhome.jpg" alt="luzes">
                 </div>
             </div>
         </section>
@@ -167,18 +166,12 @@
                 </h1>
             </div>
             <div class="sobracelha">
-<<<<<<< HEAD
                 <div class="divimg1">
-                    <img class="imgsobra1" src="/projet/img/bottonlongs.jpg" alt="sobracelho1">
+                    <img class="imgsobra1" src="/img/bottonlongs.jpg" alt="sobracelho1">
                 </div>
                 <div class="divimg">
-=======
-                <div class="divimg1" >
-                    <img  class="imgsobra1" src="/projet/img/bottonlongs.jpg" alt="sobracelho1">
-                </div>
-                <div  class="divimg">
->>>>>>> 3842a2f05a2aab63d8b6879f8d3f00d8b7a7f875
-                    <img class="imgsobra2" src="/projet/img/bottonlongs1.jpg" alt="sobracelho2">
+
+                    <img class="imgsobra2" src="/img/bottonlongs1.jpg" alt="sobracelho2">
                 </div>
             </div>
             <div class="divtext">
@@ -215,22 +208,22 @@
                 <div class="redes">
                     <div class="youtube">
                         <a href="https://www.youtube.com/" target="_blank">
-                            <img src="/projet/img/youtube.png" alt="youtube">
+                            <img src="/img/youtube.png" alt="youtube">
                         </a>
                     </div>
                     <div class="whats">
                         <a href="https://web.whatsapp.com/" target="_blank">
-                            <img src="/projet/img/whatsapp.png" alt="wahtsapp">
+                            <img src="/img/whatsapp.png" alt="wahtsapp">
                         </a>
                     </div>
                     <div class="instagem">
                         <a href="https://www.instagram.com/" target="_blank">
-                            <img src="/projet/img/instagram.png" alt="instagram">
+                            <img src="/img/instagram.png" alt="instagram">
                         </a>
                     </div>
                     <div class="facebook">
                         <a href="https://www.facebook.com/" target="_blank">
-                            <img src="/projet/img/logotipo-circular-do-facebook.png" alt="facebook">
+                            <img src="/img/logotipo-circular-do-facebook.png" alt="facebook">
                         </a>
                     </div>
                 </div>
@@ -239,25 +232,15 @@
     </footer>
 
 </body>
-
-
 <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-auth-compat.js"></script>
 
-<script src="/projet/js/firebase-init.js"></script>
+<script src="/js/firebase-init.js"></script>
 
-<<<<<<< HEAD
-<script src="/projet/js/auth-guard.js"></script>
+<script src="/js/auth.js"></script>
 <script src="home.js"></script>
-<script src="/projet/js/validations.js"></script>
-<script src="/projet/js/ go.js"></script>
-=======
-<script src="/projet/js/auth.js"></script>
-<script src="home.js"></script>
-<script src="/projet/js/validations.js"></script>
-<script src="/projet/js/go.js"></script>
-<script src="/projet/js/auth-guard.js"></script>
->>>>>>> 3842a2f05a2aab63d8b6879f8d3f00d8b7a7f875
-
+<script src="/js/validations.js"></script>
+<script src="/js/go.js"></script>
+<script src="/js/auth-guard.js"></script>
 
 </html>

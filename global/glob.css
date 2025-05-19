@@ -9,7 +9,7 @@ body {
 /*header*/
 
 header {
-    background: linear-gradient(135deg ,#e45b00, #000000, #000000d8);
+    background: #333333d8;
     color: #fff;
     position: sticky;
     top: 0;
@@ -56,7 +56,23 @@ header .topo {
     background-color: transparent;
     color: #fff;
 }
-
+button.baf{
+    width: 54px;
+    height: 54px;
+    border-radius: 50px;
+    border: none;
+    font-size: 24px;
+    box-shadow: 2px 2px 2px #333;
+}
+button.baf.fixo{
+    position: fixed;
+}
+button.baf.botton{
+    bottom: 32px;
+}
+button.baf.right{
+    right: 32px;
+}
 .semback button:hover {
     color: #5f5c5c;
 }
@@ -84,7 +100,7 @@ header .topo {
 /*footer*/
 
 footer {
-    background: linear-gradient(135deg, #000000, #000000d8 ,#e45b00);
+    background: #333333d8;
     color: #fff;
     padding: 30px 0;
     text-align: center;

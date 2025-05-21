@@ -8,7 +8,7 @@ function findTransactions(){
         addTransactionsToScreen(fakeTransection);
     }, 1000)
 }
-
+/* Exemplo!!
 function addTransactionsToScreen(transactions) {
     
     const orderedList = document.getElementById('tranzacao');
@@ -38,6 +38,7 @@ function addTransactionsToScreen(transactions) {
         orderedList.appendChild(li);
     });
 }
+    */
 
 
 
@@ -51,11 +52,6 @@ function formatMoney(money) {
 }
 
 
-
-
-
-
-
 const fakeTransection = [{
     type: 'realizado',
     date: '2020-05-04',
@@ -64,7 +60,8 @@ const fakeTransection = [{
         value: 10
     },
     transactionType:'corte',
-    description:'11 hora'
+    description:' - 11:30',
+    status: 'pendente'
 
 },{
     type: 'pendente',
@@ -74,7 +71,8 @@ const fakeTransection = [{
         value: 20
     },
     transactionType:'barba',
-    description:'9 hora'
+    description:' - 9:30',
+    status: 'pendente'
 
 },{
     type: 'realizado',
@@ -84,7 +82,8 @@ const fakeTransection = [{
         value: 10
     },
     transactionType:'corte + barba',
-    description:'10 hora'
+    description:' - 10:30',
+    status: 'pendente'
 
 },{
     type: 'realizado',
@@ -94,6 +93,40 @@ const fakeTransection = [{
         value: 10
     },
     transactionType:'corte',
-    description:'14 horas'
+    description:' - 14:30',
+    status: 'pendente'
 
 }]
+
+function addTransactionsToScreen(newAgendamento) {
+    
+    const nextList = document.getElementById('proximos');
+
+    newAgendamento.forEach(transaction => {
+        const li = document.createElement('li');
+        li.classList.add(transaction.type);
+
+        const type = document.createElement('p');
+        type.innerHTML = transaction.transactionType;
+        li.appendChild(type);
+
+        const date = document.createElement('a');
+        date.innerHTML = formatDate(transaction.date);
+        li.appendChild(date);
+
+        const description = document.createElement('a');
+        description.innerHTML = transaction.description;
+        li.appendChild(description);
+
+        const status = document.createElement('d');
+        status.innerHTML = transaction.status;
+        li.appendChild(status);
+
+        const money = document.createElement('p');
+        money.innerHTML = formatMoney(transaction.money);
+        li.appendChild(money);
+
+
+        nextList.appendChild(li);
+    });
+}

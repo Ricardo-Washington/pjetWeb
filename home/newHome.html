@@ -29,10 +29,95 @@
     </header>
 
     <main>
+        <main class="container">
+
+        <div class="dashboard">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Agendar Serviço</h2>
+                </div>
+                <p>Agende seu próximo corte de cabelo, barba ou outros serviços.</p>
+                <button id="openModalBtn" class="btn btn-primary" style="margin-top: 20px;">
+                    <i class="fas fa-calendar-plus"></i> Agendar Horário
+                </button>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Próximos Agendamentos</h2>
+                </div>
+                <ul id="proximos" class="appointment-list">
+                </ul>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Histórico de Agendamentos</h2>
+                </div>
+                <ul class="appointment-list">
+                    <li class="appointment-item">
+                        <div class="appointment-info">
+                            <h4>Barba Completa</h4>
+                            <p><i class="far fa-calendar-alt"></i> 02/06/2023 - 16:00</p>
+                        </div>
+                        <span class="appointment-status status-confirmed">Realizado</span>
+                    </li>
+                    <li class="appointment-item">
+                        <div class="appointment-info">
+                            <h4>Corte Degradê</h4>
+                            <p><i class="far fa-calendar-alt"></i> 18/05/2023 - 11:30</p>
+                        </div>
+                        <span class="appointment-status status-confirmed">Realizado</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Produtos em Destaque</h2>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/200x150?text=Pomada" alt="Pomada Modeladora">
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-name">Pomada Modeladora</h3>
+                            <div class="product-price">R$ 45,90</div>
+                            <button class="btn btn-secondary product-btn">Comprar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/200x150?text=Óleo+Barba" alt="Óleo para Barba">
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-name">Óleo para Barba</h3>
+                            <div class="product-price">R$ 39,90</div>
+                            <button class="btn btn-secondary product-btn">Comprar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/200x150?text=Shampoo" alt="Shampoo Antiqueda">
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-name">Shampoo Antiqueda</h3>
+                            <div class="product-price">R$ 59,90</div>
+                            <button class="btn btn-secondary product-btn">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
         <div>
             <ol id="tranzacao"></ol>
         </div>
-        <div>
+        <div class="botton-fixed">
             <button class="baf fixo botton right">
                 +
             </button>
@@ -55,4 +140,5 @@
     </footer>
 </body>
 <script src="/home/newHome.js" ></script>
+<script src=""></script>
 </html>

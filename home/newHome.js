@@ -6,59 +6,10 @@ function findTransactions(){
        snapshot.docs.forEach(doc => {
         const transactions = snapshot.docs.map(doc => doc.data());
         addTransactionsToScreen(transactions)
-
+        selectTransactionsToScreen(transactions)
        })
     })
 }
-
-// Exemplo de transações para a tela inicial
-const fake2Transection = [{
-    type: 'realizado',
-    date: '2020-05-04',
-    money: {
-        currency: 'R$',
-        value: 10
-    },
-    transactionType:'corte',
-    horario:' - 11:30',
-    status: 'pendente'
-
-},{
-    type: 'pendente',
-    date: '2025-07-03',
-    money: {
-        currency: 'R$',
-        value: 20
-    },
-    transactionType:'barba', 
-    horario:' - 9:30',
-    status: 'pendente'
-
-},{
-    type: 'realizado',
-    date: '2023-08-10',
-    money: {
-        currency: 'R$',
-        value: 10
-    },
-    transactionType:'corte + barba',
-    horario:' - 10:30',
-    status: 'pendente'
-
-},{
-    type: 'realizado',
-    date: '2020-05-04',
-    money: {
-        currency: 'R$',
-        value: 10
-    },
-    transactionType:'corte',
-    horario:' - 14:30',
-    status: 'pendente'
-
-}]
-
-
 // Exemplo de transações para a tela inicial
 function addTransactionsToScreen(newAgendamento) {
     
@@ -135,12 +86,14 @@ function formatMoney(money) {
     return `${money.currency} ${money.value.toFixed(2)}`
 }
 
+// Função para verificar se o usuário está logado
 firebase.auth().onAuthStateChanged(user => {
     if (!user) {
         window.location.href = "/login/login.html";
     }
 })
 
+// Função para fazer logout
 function logout() {
     console.log('Tentando deslogar...');
     if (typeof firebase === 'undefined' || !firebase.auth) {

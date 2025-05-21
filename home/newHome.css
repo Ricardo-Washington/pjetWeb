@@ -48,7 +48,7 @@ d{
 
 body{
     background: #f5f5f5;
-    background: linear-gradient(135deg, var(--primary), var(--tercearia) ,var(--secondary));
+    background: linear-gradient(135deg, var(--primary), var(--tercearia));
     color: #333;
     line-height: 1.6;
 } 
@@ -60,7 +60,7 @@ body{
 }
 
 header {
-    background: linear-gradient(135deg, var(--primary), var(--tercearia) ,var(--secondary));
+    background: linear-gradient(135deg, var(--primary), var(--tercearia) );
     color: white;
     padding: 20px 0;
     border-radius: 0 0 10px 10px;
@@ -285,7 +285,7 @@ header {
 
 /*footer*/
 footer{
-    background: linear-gradient(135deg, var(--primary), var(--tercearia),var(--secondary));
+    background: linear-gradient(135deg, var(--primary), var(--tercearia));
 }
 .container p{
     color: black;

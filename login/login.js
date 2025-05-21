@@ -1,7 +1,7 @@
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        window.location.href = "../home/home.html";
+        window.location.href = "../home/newHome.html";
     }
 })
 
@@ -26,7 +26,7 @@ function recoverPassword() {
 
 function login() {
     firebase.auth().signInWithEmailAndPassword(form.email().value, form.password().value).then(response => {
-        window.location.href = "/home/home.html";
+        window.location.href = "/home/newHome.html";
     }).catch(error => {
         alert(getErrorMessege(error));
     });
@@ -94,8 +94,4 @@ const form = {
         recoverPasswordButton: () => document.getElementById("recover-password-button")
 
     }
-    /*function validateEmail(email) {
-        // Expressão regular para verificar formatos comuns de email
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
-    }*/
+  

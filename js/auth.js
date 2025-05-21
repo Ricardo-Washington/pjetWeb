@@ -1,6 +1,5 @@
 //Confere se o user esta logado
 firebase.auth().onAuthStateChanged(user => {
-projet/agendamento/agendamento.js
     if (!user) {
         window.location.href = "/index/index.html"
     }

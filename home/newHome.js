@@ -2,10 +2,13 @@ findTransactions();
 
 // Função para adicionar transações na tela inicial
 function findTransactions(){
-    setTimeout(() => {
-        addTransactionsToScreen(fakeTransection);
-        selectTransactionsToScreen(fake2Transection);
-    }, 1000)
+    firebase.firestore().collection('transactions').get().then(snapshot => {
+       snapshot.docs.forEach(doc => {
+        const transactions = snapshot.docs.map(doc => doc.data());
+        addTransactionsToScreen(transactions)
+
+       })
+    })
 }
 
 // Exemplo de transações para a tela inicial
@@ -27,7 +30,7 @@ const fake2Transection = [{
         currency: 'R$',
         value: 20
     },
-    transactionType:'barba',
+    transactionType:'barba', 
     horario:' - 9:30',
     status: 'pendente'
 
@@ -55,52 +58,6 @@ const fake2Transection = [{
 
 }]
 
-// Exemplo de transações para o histórico
-const fakeTransection = [{
-    type: 'realizado',
-    date: '2020-05-04',
-    money: {
-        currency: 'R$',
-        value: 10
-    },
-    transactionType:'corte',
-    horario:' - 11:30',
-    status: 'pendente'
-
-},{
-    type: 'pendente',
-    date: '2025-07-03',
-    money: {
-        currency: 'R$',
-        value: 20
-    },
-    transactionType:'barba',
-    horario:' - 9:30',
-    status: 'pendente'
-
-},{
-    type: 'realizado',
-    date: '2023-08-10',
-    money: {
-        currency: 'R$',
-        value: 10
-    },
-    transactionType:'corte + barba',
-    horario:' - 10:30',
-    status: 'pendente'
-
-},{
-    type: 'realizado',
-    date: '2020-05-04',
-    money: {
-        currency: 'R$',
-        value: 10
-    },
-    transactionType:'corte',
-    horario:' - 14:30',
-    status: 'pendente'
-
-}]
 
 // Exemplo de transações para a tela inicial
 function addTransactionsToScreen(newAgendamento) {

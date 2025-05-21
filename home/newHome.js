@@ -17,7 +17,7 @@ const fake2Transection = [{
         value: 10
     },
     transactionType:'corte',
-    description:' - 11:30',
+    horario:' - 11:30',
     status: 'pendente'
 
 },{
@@ -28,7 +28,7 @@ const fake2Transection = [{
         value: 20
     },
     transactionType:'barba',
-    description:' - 9:30',
+    horario:' - 9:30',
     status: 'pendente'
 
 },{
@@ -39,7 +39,7 @@ const fake2Transection = [{
         value: 10
     },
     transactionType:'corte + barba',
-    description:' - 10:30',
+    horario:' - 10:30',
     status: 'pendente'
 
 },{
@@ -50,7 +50,7 @@ const fake2Transection = [{
         value: 10
     },
     transactionType:'corte',
-    description:' - 14:30',
+    horario:' - 14:30',
     status: 'pendente'
 
 }]
@@ -64,7 +64,7 @@ const fakeTransection = [{
         value: 10
     },
     transactionType:'corte',
-    description:' - 11:30',
+    horario:' - 11:30',
     status: 'pendente'
 
 },{
@@ -75,7 +75,7 @@ const fakeTransection = [{
         value: 20
     },
     transactionType:'barba',
-    description:' - 9:30',
+    horario:' - 9:30',
     status: 'pendente'
 
 },{
@@ -86,7 +86,7 @@ const fakeTransection = [{
         value: 10
     },
     transactionType:'corte + barba',
-    description:' - 10:30',
+    horario:' - 10:30',
     status: 'pendente'
 
 },{
@@ -97,7 +97,7 @@ const fakeTransection = [{
         value: 10
     },
     transactionType:'corte',
-    description:' - 14:30',
+    horario:' - 14:30',
     status: 'pendente'
 
 }]
@@ -124,9 +124,9 @@ function addTransactionsToScreen(newAgendamento) {
         date.innerHTML = formatDate(transaction.date);
         li.appendChild(date);
 
-        const description = document.createElement('a');
-        description.innerHTML = transaction.description;
-        li.appendChild(description);
+        const horario = document.createElement('a');
+        horario.innerHTML = transaction.horario;
+        li.appendChild(horario);
 
         const status = document.createElement('d');
         status.innerHTML = transaction.status;

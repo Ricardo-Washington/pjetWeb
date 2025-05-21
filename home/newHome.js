@@ -1,8 +1,5 @@
 findTransactions();
 
-
-
-
 // Função para adicionar transações na tela inicial
 function findTransactions(){
     setTimeout(() => {

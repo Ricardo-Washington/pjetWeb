@@ -25,16 +25,14 @@
         </div>
     </header>
 
-    <main>
         <main class="container">
-
         <div class="dashboard">
             <div class="card">
                 <div class="card-header">
                     <h2 class="card-title">Agendar Serviço</h2>
                 </div>
                 <p>Agende seu próximo corte de cabelo, barba ou outros serviços.</p>
-                <button id="openModalBtn" class="btn btn-primary" style="margin-top: 20px;">
+                <button id="openModalBtn" class="btn btn-primary" style="margin-top: 20px;" onclick="godashboard()">
                     <i class="fas fa-calendar-plus"></i> Agendar Horário
                 </button>
             </div>
@@ -97,18 +95,13 @@
         </div>
     </main>
         <div class="botton-fixed">
-            <button class="baf fixo botton right">
-                +
+            <button class="baf fixo botton right" onclick="godashboard()">
+                <img class="add" src="/img/adicionar-botao.png" alt="add">
             </button>
         </div>
-
-
-
-    </main>
-
     <footer>
         <div class="container">
-            <p>&copy; [2025] [Nome da Barbearia]. Todos os direitos reservados.</p>
+            <p class="footer-text">&copy; [2025] [Nome da Barbearia]. Todos os direitos reservados.</p>
             <div class="social-links">
                 <a href="#"><img src="/img/logotipo-circular-do-facebook.png" alt="Facebook"></a>
                 <a href="#"><img src="/img/instagram.png" alt="Instagram"></a>

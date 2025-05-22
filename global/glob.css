@@ -1,3 +1,13 @@
+:root {
+    --primary: #000000ec;
+    --secondary: #e44d26;
+    --accent: #ec6313e0;
+    --highlight: #e94560;
+    --light: #f1f1f1;
+    --gray: #8d8d8d;
+    --tercearia: #000000ad;
+}
+
 body {
     width: 100%;
     height: auto;
@@ -61,7 +71,7 @@ button.baf{
     height: 54px;
     border-radius: 50px;
     border: none;
-    font-size: 24px;
+    font-size: 28px;
     box-shadow: 2px 2px 2px #333;
 }
 button.baf.fixo{
@@ -69,10 +79,21 @@ button.baf.fixo{
 }
 button.baf.botton{
     bottom: 32px;
+    background-color: var(--secondary);
+    cursor: pointer;
+}
+button.baf.botton:hover{
+    background-color: var(--accent);
+    bottom: 35px;
 }
 button.baf.right{
     right: 32px;
 }
+.add{
+    width: 30px;
+    margin-top: 6px;
+}
+
 .semback button:hover {
     color: #5f5c5c;
 }
@@ -129,6 +150,8 @@ footer .social-links img {
 
 footer .social-links img:hover {
     opacity: 1;
+    width: 32px;
+    height: 35px;
 }
 
 .instagem img {

@@ -5,7 +5,7 @@ const bookAppointmentButton = document.querySelector('.book-appointment-button')
 const avisoHorario = document.querySelector('.aviso-horario');
 const servicoSelect = document.getElementById('servico');
 
-function loadAvailableTimes(date) {
+async function loadAvailableTimes(date) {
     const barbeiroId = barbeiroSelect.value;
     if (!date || !barbeiroId) {
         horarioSelect.innerHTML = '<option value="">Selecione o horário</option>';
@@ -15,26 +15,41 @@ function loadAvailableTimes(date) {
         return;
     }
 
-    // *** SIMULAÇÃO DE BUSCA DE HORÁRIOS DISPONÍVEIS (BACK-END LÓGICA REAL) ***
-    // Em um cenário real, você faria uma requisição AJAX para o seu servidor
-    // para obter os horários disponíveis para a data e barbeiro selecionados.
-    const horariosDisponiveisSimulacao = getAvailableTimesSimulation(date, barbeiroId);
+    // Horários base
+    const horariosBase = ['09:00', '09:30', '10:00', '10:30', '11:00', '14:00', '14:30', '15:00', '15:30', '16:00'];
 
-    horarioSelect.innerHTML = '<option value="">Selecione o horário</option>';
-    if (horariosDisponiveisSimulacao.length > 0) {
-        horariosDisponiveisSimulacao.forEach(horario => {
-            const option = document.createElement('option');
-            option.value = horario;
-            option.textContent = horario;
-            horarioSelect.appendChild(option);
-        });
-        horarioSelect.disabled = false;
-        avisoHorario.style.display = 'none';
-    } else {
+    // Buscar horários já agendados no Firestore
+    try {
+        const snapshot = await firebase.firestore().collection('agendamentos')
+            .where('barbeiro', '==', barbeiroId)
+            .where('data', '==', date)
+            .get();
+        const agendados = snapshot.docs.map(doc => doc.data().horario);
+        // Filtrar horários disponíveis
+        const horariosDisponiveis = horariosBase.filter(horario => !agendados.includes(horario));
+
+        horarioSelect.innerHTML = '<option value="">Selecione o horário</option>';
+        if (horariosDisponiveis.length > 0) {
+            horariosDisponiveis.forEach(horario => {
+                const option = document.createElement('option');
+                option.value = horario;
+                option.textContent = horario;
+                horarioSelect.appendChild(option);
+            });
+            horarioSelect.disabled = false;
+            avisoHorario.style.display = 'none';
+        } else {
+            horarioSelect.disabled = true;
+            avisoHorario.style.display = 'block';
+        }
+        bookAppointmentButton.disabled = true;
+    } catch (error) {
+        console.error('Erro ao buscar horários:', error);
+        horarioSelect.innerHTML = '<option value="">Selecione o horário</option>';
         horarioSelect.disabled = true;
         avisoHorario.style.display = 'block';
+        bookAppointmentButton.disabled = true;
     }
-    bookAppointmentButton.disabled = true; // Habilitar ao selecionar um horário válido
 }
 
 function checkBookingAvailability() {
@@ -56,33 +71,85 @@ dataInput.addEventListener('change', () => {
 });
 horarioSelect.addEventListener('change', checkBookingAvailability);
 
-bookAppointmentButton.addEventListener('click', () => {
+bookAppointmentButton.addEventListener('click', async () => {
     const servico = servicoSelect.value;
     const barbeiro = barbeiroSelect.value;
     const data = dataInput.value;
     const horario = horarioSelect.value;
 
-    // *** AQUI VOCÊ IMPLEMENTARIA A LÓGICA PARA ENVIAR A RESERVA PARA O SEU SERVIDOR ***
-    console.log('Reserva Solicitada:', { servico, barbeiro, data, horario });
-    alert('Reserva solicitada com sucesso!');
-    // Após a reserva bem-sucedida, você pode limpar o formulário ou redirecionar o cliente.
-    document.getElementById('servico').value = '';
-    document.getElementById('barbeiro').value = '';
-    document.getElementById('data').value = '';
-    document.getElementById('horario').value = '';
-    bookAppointmentButton.disabled = true;
-    loadAvailableTimes(''); // Limpar horários
+    // Pega o usuário autenticado
+    const user = firebase.auth().currentUser;
+    if (!user) {
+        alert('Usuário não autenticado!');
+        return;
+    }
+
+    try {
+        await firebase.firestore().collection('agendamentos').add({
+            servico,
+            barbeiro,
+            data,
+            horario,
+            userId: user.uid,
+            status: 'pendente',
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        alert('Reserva cadastrada com sucesso!');
+        // Limpa o formulário
+        servicoSelect.value = '';
+        barbeiroSelect.value = '';
+        dataInput.value = '';
+        horarioSelect.value = '';
+        bookAppointmentButton.disabled = true;
+        loadAvailableTimes('');
+    } catch (error) {
+        alert('Erro ao cadastrar agendamento!');
+        console.error(error);
+    }
 });
 
-// *** FUNÇÃO DE SIMULAÇÃO DE HORÁRIOS DISPONÍVEIS (SUBSTITUIR PELA LÓGICA DO BACK-END) ***
-function getAvailableTimesSimulation(date, barbeiroId) {
-    const horariosBase = ['09:00', '09:30', '10:00', '10:30', '11:00', '14:00', '14:30', '15:00', '15:30', '16:00'];
-    const horariosFiltrados = horariosBase.filter(horario => {
-        // *** AQUI VOCÊ IMPLEMENTARIA A LÓGICA REAL DE VERIFICAÇÃO DE DISPONIBILIDADE ***
-        // Isso envolveria consultar seu banco de dados para ver se o horário está ocupado
-        // para a data e barbeiro selecionados.
-        // Para esta simulação, vamos retornar alguns horários aleatoriamente.
-        return Math.random() > 0.4;
-    });
-    return horariosFiltrados;
+// Função para buscar e exibir agendamentos do usuário logado
+function carregarAgendamentosUsuario() {
+    const user = firebase.auth().currentUser;
+    if (!user) return;
+    firebase.firestore().collection('agendamentos')
+        .where('userId', '==', user.uid)
+        .orderBy('data', 'desc')
+        .get()
+        .then(snapshot => {
+            const agendamentos = snapshot.docs.map(doc => doc.data());
+            exibirAgendamentos(agendamentos);
+        })
+        .catch(error => {
+            console.error('Erro ao buscar agendamentos:', error);
+        });
 }
+
+function exibirAgendamentos(agendamentos) {
+    const lista = document.getElementById('proximos');
+    lista.innerHTML = '';
+    if (!agendamentos.length) {
+        lista.innerHTML = '<li>Nenhum agendamento encontrado.</li>';
+        return;
+    }
+    agendamentos.forEach(ag => {
+        const li = document.createElement('li');
+        li.className = 'appointment-item';
+        li.innerHTML = `
+            <div class="appointment-info">
+                <h4>${ag.servico || ''}</h4>
+                <p><i class="far fa-calendar-alt"></i> ${ag.data || ''} - ${ag.horario || ''}</p>
+                <p>Barbeiro: ${ag.barbeiro || ''}</p>
+            </div>
+            <span class="appointment-status status-pending">${ag.status || 'pendente'}</span>
+        `;
+        lista.appendChild(li);
+    });
+}
+
+// Chama a função ao carregar a página e ao cadastrar novo agendamento
+firebase.auth().onAuthStateChanged(user => {
+    if (user) carregarAgendamentosUsuario();
+});
+
+

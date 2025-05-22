@@ -27,18 +27,6 @@ d{
     color: green;
 }
 
-/*********************************************************************************************************************************************************************************/
-
-:root {
-    --primary: #000000ec;
-    --secondary: #e45e20ec;
-    --accent: #ec6313e0;
-    --highlight: #e94560;
-    --light: #f1f1f1;
-    --gray: #8d8d8d;
-    --tercearia: #000000ad;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -127,6 +115,7 @@ header {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
+
 .card-header {
     justify-content: space-between;
     display: flex;
@@ -151,6 +140,9 @@ header {
     color: var(--primary);
     font-weight: 600;
 }
+.comback button{
+    width: 60px;
+}
 
 .btn {
     padding: 10px 20px;
@@ -165,21 +157,23 @@ header {
 }
 
 .btn-primary {
-    background-color: var(--highlight);
+    background-color: var(--secondary);
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: #d13a54;
+    background-color: var(--accent);
+    color: black;
 }
 
 .btn-secondary {
-    background-color: var(--accent);
+    background-color: var(--secondary);
     color: white;
 }
 
 .btn-secondary:hover {
-    background-color: #0d2b4d;
+    background-color: var(--accent);
+    color: black;
 }
 
 .appointment-list {
@@ -286,7 +280,6 @@ header {
 /*footer*/
 footer{
     background: linear-gradient(135deg, var(--primary), var(--tercearia));
+    color: white;
 }
-.container p{
-    color: black;
-}
+

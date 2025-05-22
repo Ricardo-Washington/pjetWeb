@@ -2,7 +2,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: hsla(0, 0%, 0%, 0.651);
     color: #333;
     min-height: 100vh;
     display: flex;
@@ -37,7 +37,8 @@ body {
 }
 
 .sidebar .logo img {
-    height: 50px;
+    height: 80px;
+    width: 80px;
     margin-bottom: 10px;
 }
 
@@ -72,6 +73,11 @@ body {
     background-color: #555;
     color: #fff;
 }
+.logo img{
+    border-radius: 50px;
+    display: block;
+    margin: 0 auto
+}
 
 /* Main Content */
 .main-content {
@@ -101,6 +107,7 @@ header .user-greeting {
 }
 
 /* Scheduling Section */
+
 .scheduling-section h2 {
     font-size: 1.6em;
     color: #333;
@@ -197,24 +204,12 @@ header .user-greeting {
     margin-right: 5px;
 }
 
-.cancel-button {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.cancel-button:hover {
-    background-color: #c82333;
-}
-
 .aviso-horario {
     margin-top: 10px;
     font-size: 0.9em;
 }
+
+
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -230,5 +225,33 @@ header .user-greeting {
         overflow-x: auto;
     }
 
-    .sidebar .logo {}
+}
+
+ol{
+    list-style-type: none;
+    padding: 0;
+}
+ol li{
+    cursor: pointer;
+    background: #333;
+    padding: 8px 16px;
+    border-bottom: 1px solid gray;
+}
+ol li:hover{
+    opacity: 0.8;
+}
+ol li.pendente{
+    border-left: 10px solid red;
+
+}
+ol li.realizado{
+    border-left: 10px solid green;
+
+}
+p{
+    margin: 4px 0; 
+}
+d{
+    margin-left: 300px;
+    color: green;
 }

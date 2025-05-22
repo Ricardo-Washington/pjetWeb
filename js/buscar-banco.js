@@ -1,26 +1,25 @@
 // Verifica se o Firebase está carregado e usuário autenticado
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
-        findTransactions(user);
+        findAgendamentos(user);
     } else {
         window.location.href = "/login/login.html";
     }
 });
 
-function findTransactions(user) {
-    firebase.firestore().collection('transactions')
-        .where('user.uid', '==', user.uid)
-        .orderBy('date', 'desc')
+function findAgendamentos(user) {
+    firebase.firestore().collection('agendamentos')
+        .where('userId', '==', user.uid)
+        .orderBy('data', 'desc')
         .get()
         .then(snapshot => {
-            const transactions = snapshot.docs.map(doc => doc.data());
-            console.log(transactions);
-            addTransactionsToScreen(transactions);
-            selectTransactionsToScreen(transactions);
+            const agendamentos = snapshot.docs.map(doc => doc.data());
+            console.log(agendamentos);
+            addTransactionsToScreen(agendamentos);
+            selectTransactionsToScreen(agendamentos);
         })
         .catch(error => {
-            console.log( error);
-            alert('Erro ao buscar transações!');
+            console.log(error);
         });
 
 }
@@ -116,20 +115,3 @@ firebase.auth().onAuthStateChanged(user => {
         window.location.href = "/login/login.html";
     }
 })
-
-// Função para fazer logout
-function logout() {
-    console.log('Tentando deslogar...');
-    if (typeof firebase === 'undefined' || !firebase.auth) {
-        alert('Firebase não está carregado corretamente!');
-        return;
-    }
-    firebase.auth().signOut()
-        .then(() => {
-            window.location.href = "/login/login.html";
-        })
-        .catch((error) => {
-            alert('Erro de logout!');
-            console.error('Erro ao deslogar:', error);
-        });
-}

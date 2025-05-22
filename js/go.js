@@ -10,14 +10,9 @@ function goregister() {
 function gonewIndex() {
     window.location.href = "/newindex/newindex.html";
 }
-
-function goagendamento() {
-    window.location.href = "/agendamento/agendamento.html";
+function gonewHome() {
+    window.location.href = "/home/newHome.html";
 }
-
-function goHome() {
-    window.location.href = "/home/home.html";
-}
-function godas() {
+function godashboard() {
     window.location.href = "/agendamento/dashboard-agendamento.html"
 }

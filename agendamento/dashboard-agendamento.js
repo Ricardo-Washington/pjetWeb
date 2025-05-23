@@ -5,6 +5,22 @@ const bookAppointmentButton = document.querySelector('.book-appointment-button')
 const avisoHorario = document.querySelector('.aviso-horario');
 const servicoSelect = document.getElementById('servico');
 
+// Habilita/desabilita botão conforme seleção
+function checkBookingAvailability() {
+    if (
+        servicoSelect.value &&
+        barbeiroSelect.value &&
+        dataInput.value &&
+        horarioSelect.value &&
+        !horarioSelect.disabled
+    ) {
+        bookAppointmentButton.disabled = false;
+    } else {
+        bookAppointmentButton.disabled = true;
+    }
+}
+
+// Carrega horários disponíveis do banco
 async function loadAvailableTimes(date) {
     const barbeiroId = barbeiroSelect.value;
     if (!date || !barbeiroId) {
@@ -15,17 +31,17 @@ async function loadAvailableTimes(date) {
         return;
     }
 
-    // Horários base
-    const horariosBase = ['09:00', '09:30', '10:00', '10:30', '11:00', '14:00', '14:30', '15:00', '15:30', '16:00'];
+    const horariosBase = [
+        '09:00', '09:30', '10:00', '10:30', '11:00',
+        '14:00', '14:30', '15:00', '15:30', '16:00'
+    ];
 
-    // Buscar horários já agendados no Firestore
     try {
         const snapshot = await firebase.firestore().collection('agendamentos')
             .where('barbeiro', '==', barbeiroId)
             .where('data', '==', date)
             .get();
         const agendados = snapshot.docs.map(doc => doc.data().horario);
-        // Filtrar horários disponíveis
         const horariosDisponiveis = horariosBase.filter(horario => !agendados.includes(horario));
 
         horarioSelect.innerHTML = '<option value="">Selecione o horário</option>';
@@ -52,32 +68,12 @@ async function loadAvailableTimes(date) {
     }
 }
 
-function checkBookingAvailability() {
-    if (servicoSelect.value && barbeiroSelect.value && dataInput.value && horarioSelect.value) {
-        bookAppointmentButton.disabled = false;
-    } else {
-        bookAppointmentButton.disabled = true;
-    }
-}
-
-servicoSelect.addEventListener('change', checkBookingAvailability);
-barbeiroSelect.addEventListener('change', () => {
-    loadAvailableTimes(dataInput.value);
-    checkBookingAvailability();
-});
-dataInput.addEventListener('change', () => {
-    loadAvailableTimes(dataInput.value);
-    checkBookingAvailability();
-});
-horarioSelect.addEventListener('change', checkBookingAvailability);
-
+// Evento para cadastrar agendamento com verificação de disponibilidade
 bookAppointmentButton.addEventListener('click', async () => {
     const servico = servicoSelect.value;
     const barbeiro = barbeiroSelect.value;
     const data = dataInput.value;
     const horario = horarioSelect.value;
-
-    // Pega o usuário autenticado
     const user = firebase.auth().currentUser;
     if (!user) {
         alert('Usuário não autenticado!');
@@ -85,6 +81,19 @@ bookAppointmentButton.addEventListener('click', async () => {
     }
 
     try {
+        // Verifica se já existe agendamento para o mesmo barbeiro, data e horário
+        const snapshot = await firebase.firestore().collection('agendamentos')
+            .where('barbeiro', '==', barbeiro)
+            .where('data', '==', data)
+            .where('horario', '==', horario)
+            .get();
+
+        if (!snapshot.empty) {
+            alert('Este horário já está ocupado! Escolha outro.');
+            return;
+        }
+
+        // Se não existe, pode cadastrar
         await firebase.firestore().collection('agendamentos').add({
             servico,
             barbeiro,
@@ -99,57 +108,75 @@ bookAppointmentButton.addEventListener('click', async () => {
         servicoSelect.value = '';
         barbeiroSelect.value = '';
         dataInput.value = '';
-        horarioSelect.value = '';
+        horarioSelect.innerHTML = '<option value="">Selecione o horário</option>';
+        horarioSelect.disabled = true;
         bookAppointmentButton.disabled = true;
-        loadAvailableTimes('');
+        avisoHorario.style.display = 'none';
+        carregarAgendamentosUsuario();
     } catch (error) {
         alert('Erro ao cadastrar agendamento!');
         console.error(error);
     }
 });
 
-// Função para buscar e exibir agendamentos do usuário logado
-function carregarAgendamentosUsuario() {
+// Busca e exibe os agendamentos do usuário logado
+async function carregarAgendamentosUsuario() { 
     const user = firebase.auth().currentUser;
     if (!user) return;
-    firebase.firestore().collection('agendamentos')
-        .where('userId', '==', user.uid)
-        .orderBy('data', 'desc')
-        .get()
-        .then(snapshot => {
-            const agendamentos = snapshot.docs.map(doc => doc.data());
-            exibirAgendamentos(agendamentos);
-        })
-        .catch(error => {
-            console.error('Erro ao buscar agendamentos:', error);
-        });
-}
 
-function exibirAgendamentos(agendamentos) {
     const lista = document.getElementById('proximos');
     lista.innerHTML = '';
-    if (!agendamentos.length) {
+
+    const snapshot = await firebase.firestore().collection('agendamentos')
+        .where('userId', '==', user.uid)
+        .orderBy('data', 'asc')
+        .get();
+
+    if (snapshot.empty) {
         lista.innerHTML = '<li>Nenhum agendamento encontrado.</li>';
         return;
     }
-    agendamentos.forEach(ag => {
+
+    snapshot.forEach(doc => {
+        const agendamento = doc.data();
         const li = document.createElement('li');
         li.className = 'appointment-item';
-        li.innerHTML = `
-            <div class="appointment-info">
-                <h4>${ag.servico || ''}</h4>
-                <p><i class="far fa-calendar-alt"></i> ${ag.data || ''} - ${ag.horario || ''}</p>
-                <p>Barbeiro: ${ag.barbeiro || ''}</p>
-            </div>
-            <span class="appointment-status status-pending">${ag.status || 'pendente'}</span>
-        `;
+       li.innerHTML = `
+    <div class="appointment-info">
+        <h4>${agendamento.servico || ''}</h4>
+        <p><i class="far fa-calendar-alt"></i> ${formatarDataBR(agendamento.data) || ''} - ${agendamento.horario || ''}</p>
+        <p>Barbeiro: ${agendamento.barbeiro || ''}</p>
+    </div>
+    <span class="appointment-status status-pending">${agendamento.status || 'pendente'}</span>
+`;
         lista.appendChild(li);
     });
 }
 
-// Chama a função ao carregar a página e ao cadastrar novo agendamento
+// Eventos para atualizar horários e botão
+servicoSelect.addEventListener('change', checkBookingAvailability);
+barbeiroSelect.addEventListener('change', () => {
+    loadAvailableTimes(dataInput.value);
+    checkBookingAvailability();
+});
+dataInput.addEventListener('change', () => {
+    loadAvailableTimes(dataInput.value);
+    checkBookingAvailability();
+});
+horarioSelect.addEventListener('change', checkBookingAvailability);
+
+// Chama a função ao carregar a página
 firebase.auth().onAuthStateChanged(user => {
     if (user) carregarAgendamentosUsuario();
 });
 
-
+// Função para formatar a data para o padrão brasileiro
+function formatarDataBR(dataISO) {
+    if (!dataISO) return '';
+    // Se vier no formato yyyy-mm-dd
+    const partes = dataISO.split('-');
+    if (partes.length === 3) {
+        return `${partes[2]}/${partes[1]}/${partes[0]}`;
+    }
+    return dataISO;
+}

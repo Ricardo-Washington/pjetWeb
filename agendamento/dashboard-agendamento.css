@@ -209,6 +209,20 @@ header .user-greeting {
     font-size: 0.9em;
 }
 
+/* Barra de rolagem para a lista de agendamentos */
+#proximos {
+    max-height: 300px;   
+    overflow-y: auto;
+    padding-right: 8px;  
+}
+
+#proximos::-webkit-scrollbar {
+    width: 8px;
+}
+#proximos::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
 
 
 /* Responsividade */

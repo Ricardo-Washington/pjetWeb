@@ -76,10 +76,10 @@ header nav ul li button:hover {
 }
 
 .hero {
-    background-image: url(''); 
+    background-image: url('/img/barbearia-hero.jpeg'); 
     background-size: cover;
     background-position: center;
-    color:  #222;
+    color:  #fdfdfd;
     padding: 100px 0;
     text-align: center;
 }
@@ -146,7 +146,6 @@ header nav ul li button:hover {
 
 .sobre {
     padding: 80px 0;
-    background-color: #fff;
 }
 
 .sobre .container {
@@ -180,6 +179,7 @@ header nav ul li button:hover {
     padding: 80px 0;
     background-color: #f9f9f9;
     text-align: center;
+    background-color: var(--primary);
 }
 
 .servicos h2 {

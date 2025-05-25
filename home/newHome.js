@@ -6,24 +6,7 @@ firebase.auth().onAuthStateChanged(user => {
         window.location.href = "/login/login.html";
     }
 });
-// Função para adicionar transações na tela inicial
-function findTransactions(user) {
-    firebase.firestore().collection('transactions')
-        .where('user.uid', '==', user.uid)
-        .orderBy('date', 'desc')
-        .get()
-        .then(snapshot => {
-            const transactions = snapshot.docs.map(doc => doc.data());
-            console.log(transactions);
-            addTransactionsToScreen(transactions);
-            selectTransactionsToScreen(transactions);
-        })
-        .catch(error => {
-            console.log( error);
-            alert('Erro ao buscar transações!');
-        });
 
-}
 // Função para formatar a data para o padrão brasileiro
 function formatarDataBR(dataISO) {
     if (!dataISO) return '';
@@ -34,40 +17,7 @@ function formatarDataBR(dataISO) {
     return dataISO;
 }
 
-// Busca e exibe os agendamentos do usuário logado
-async function carregarAgendamentosUsuario() { 
-    const user = firebase.auth().currentUser;
-    if (!user) return;
-    // Limpa a lista de agendamentos
-    const lista = document.getElementById('proximos');
-    if (!lista) return;
-    lista.innerHTML = '';
-    // Busca os agendamentos do usuário
-    const snapshot = await firebase.firestore().collection('agendamentos')
-        .where('userId', '==', user.uid)
-        .orderBy('data', 'asc')
-        .get();
-    // Verifica se a lista está vazia
-    if (snapshot.empty) {
-        lista.innerHTML = '<li>Nenhum agendamento encontrado.</li>';
-        return;
-    }
-    // Adiciona os agendamentos à lista
-    snapshot.forEach(doc => {
-        const agendamento = doc.data();
-        const li = document.createElement('li');
-        li.className = 'appointment-item';
-        li.innerHTML = `
-            <div class="appointment-info">
-                <h4>${agendamento.servico || ''}</h4>
-                <p><i class="far fa-calendar-alt"></i> ${formatarDataBR(agendamento.data) || ''} - ${agendamento.horario || ''}</p>
-                <p>Barbeiro: ${agendamento.barbeiro || ''}</p>
-            </div>
-            <span class="appointment-status status-pending">${agendamento.status || 'pendente'}</span>
-        `;
-        lista.appendChild(li);
-    });
-}
+
 
 // Chama a função ao carregar a página
 firebase.auth().onAuthStateChanged(user => {
@@ -156,7 +106,7 @@ async function carregarAgendamentosUsuario() {
             </div>
             <span class="appointment-status status-pending">${agendamento.status || 'pendente'}</span>
         `;
-
+ alert
         if (dataObj && dataObj >= hoje) {
             listaProximos.appendChild(li);
             temProximos = true;

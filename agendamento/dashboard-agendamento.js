@@ -20,6 +20,7 @@ function checkBookingAvailability() {
     }
 }
 
+
 // Carrega horários disponíveis do banco
 async function loadAvailableTimes(date) {
     const barbeiroId = barbeiroSelect.value;
@@ -79,7 +80,16 @@ bookAppointmentButton.addEventListener('click', async () => {
         alert('Usuário não autenticado!');
         return;
     }
+    // Verifica se a data escolhida já passou
+        const hoje = new Date();
+        hoje.setHours(0,0,0,0); // Zera horas para comparar só a data
+        const partesData = data.split('-');
+        const dataSelecionada = new Date(partesData[0], partesData[1] - 1, partesData[2]);
 
+        if (dataSelecionada < hoje) {
+            alert('Não é possível agendar para uma data que já passou!');
+            return;
+        }
     try {
         // Verifica se já existe agendamento para o mesmo barbeiro, data e horário
         const snapshot = await firebase.firestore().collection('agendamentos')

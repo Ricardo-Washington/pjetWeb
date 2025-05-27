@@ -106,7 +106,7 @@ async function carregarAgendamentosUsuario() {
             </div>
             <span class="appointment-status status-pending">${agendamento.status || 'pendente'}</span>
         `;
- alert
+        // alert removido ou ajustado
         if (dataObj && dataObj >= hoje) {
             listaProximos.appendChild(li);
             temProximos = true;
@@ -119,8 +119,3 @@ async function carregarAgendamentosUsuario() {
     if (!temProximos) listaProximos.innerHTML = '<li>Nenhum agendamento futuro encontrado.</li>';
     if (!temHistorico) listaHistorico.innerHTML = '<li>Nenhum agendamento antigo encontrado.</li>';
 }
-
-// Chama a função ao carregar a página
-firebase.auth().onAuthStateChanged(user => {
-    if (user) carregarAgendamentosUsuario();
-});

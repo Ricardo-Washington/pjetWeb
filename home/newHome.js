@@ -119,3 +119,5 @@ async function carregarAgendamentosUsuario() {
     if (!temProximos) listaProximos.innerHTML = '<li>Nenhum agendamento futuro encontrado.</li>';
     if (!temHistorico) listaHistorico.innerHTML = '<li>Nenhum agendamento antigo encontrado.</li>';
 }
+
+

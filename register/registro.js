@@ -1,9 +1,8 @@
 firebase.auth().onAuthStateChanged(user => {
     if(user) {
-        window.location.href = "/projet/home/home.html";
+        window.location.href = "/home/newHome.html";
     }
 })
-
 
 function onChangeEmail() {
     const email = form.email().value;
@@ -79,26 +78,39 @@ function isFormValid(){
      return true;
 }
 
+// Função para obter mensagens de erro amigáveis
+// função para cadastrar os dados do usuario no firebase
 function register() {
     const email = form.email().value;
     const password = form.password().value;
-    firebase.auth().createUserWithEmailAndPassword(
-        email, password
-    ).then(() => {
-       
-        window.location.href = "/projet/home/home.html";
-    }).catch(error => {
-       
-        alert(getErrorMessage(error));
-    })
-}
-function getErrorMessage(error) {
-    if (error.code == "auth/email-already-in-use") {
-        return "Email já está em uso";
-    }
-    return error.message;
-}
+    const name = form.name().value;
+    const phone = form.phone().value;
+    const cpf = form.cpf().value;
 
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+        const userId = userCredential.user.uid;
+        return firebase.firestore().collection('usuarios').doc(userId).set({
+            nome: name,
+            email: email,
+            telefone: phone,
+            cpf: cpf,
+            criadoEm: firebase.firestore.FieldValue.serverTimestamp()
+        });
+    })
+    .then(() => {
+        alert("Cadastro realizado com sucesso!");
+        window.location.href = "/login/login.html";
+    })
+    .catch(error => {
+        if (error.code === "auth/email-already-in-use") {
+            alert("Este e-mail já está cadastrado. Por favor, use outro.");
+        } else {
+            alert("Erro: " + error.message);
+        }
+    });
+}
 
 const form = {
     email: () => document.getElementById('email'),

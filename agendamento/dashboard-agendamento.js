@@ -180,6 +180,21 @@ firebase.auth().onAuthStateChanged(user => {
     if (user) carregarAgendamentosUsuario();
 });
 
+// Inicializa o Firebase
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        carregarAgendamentosUsuario();
+        // Buscar nome do usuário no Firestore
+        firebase.firestore().collection('usuarios').doc(user.uid).get()
+            .then(doc => {
+                if (doc.exists) {
+                    const nome = doc.data().nome || '';
+                    document.getElementById('nome-cliente').textContent = nome;
+                }
+            });
+    }
+});
+
 // Função para formatar a data para o padrão brasileiro
 function formatarDataBR(dataISO) {
     if (!dataISO) return '';

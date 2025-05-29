@@ -119,5 +119,12 @@ async function carregarAgendamentosUsuario() {
     if (!temProximos) listaProximos.innerHTML = '<li>Nenhum agendamento futuro encontrado.</li>';
     if (!temHistorico) listaHistorico.innerHTML = '<li>Nenhum agendamento antigo encontrado.</li>';
 }
-
-
+function findTransactions(){
+    firebase.firestore().collection('transactions').get().then(snapshot => {
+       snapshot.docs.forEach(doc => {
+        const transactions = snapshot.docs.map(doc => doc.data());
+        addTransactionsToScreen(transactions)
+        selectTransactionsToScreen(transactions)
+       })
+    })
+}

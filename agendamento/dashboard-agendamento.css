@@ -105,8 +105,34 @@ header .user-greeting {
     font-size: 1.1em;
     color: #777;
 }
-
-/* Scheduling Section */
+/* button de escluir e editar  */
+.appointment-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+.btn-cancel, .btn-edit {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+    transition: background 0.2s;
+}
+.btn-cancel {
+    background: #e74c3c;
+}
+.btn-cancel:hover {
+    background: #c0392b;
+}
+.btn-edit {
+    background: #3498db;
+}
+.btn-edit:hover {
+    background: #217dbb;
+}
+/* fim  */
 
 .scheduling-section h2 {
     font-size: 1.6em;

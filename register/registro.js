@@ -219,6 +219,13 @@ function validateCPF(cpf) {
         secondCheckDigit === parseInt(cpf.charAt(10))
     );
 }
+async function cpfJaCadastrado(cpf) {
+    const query = await firebase.firestore()
+        .collection('clientes')
+        .where('cpf', '==', cpf)
+        .get();
+    return !query.empty;
+}
 
 /**
  * Realiza o cadastro do usuário no Firebase Auth e salva os dados completos na coleção "clientes".

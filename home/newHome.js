@@ -278,3 +278,21 @@ document.getElementById('modal-carrinho').addEventListener('click', function(eve
         document.getElementById('qrcode-area').innerHTML = '';
     }
 });
+
+firebase.auth().onAuthStateChanged(async user => {
+    if (!user) return;
+    const doc = await firebase.firestore().collection('clientes').doc(user.uid).get();
+    if (doc.exists) {
+        const dados = doc.data();
+        // Troca o avatar, se existir
+        if (dados.fotoPerfilUrl) {
+            const avatarLogo = document.getElementById('avatar-logo');
+            if (avatarLogo) avatarLogo.src = dados.fotoPerfilUrl;
+        }
+        // Mostra o nome do usuário
+        if (dados.nome) {
+            const nomeUsuario = document.getElementById('nome-usuario');
+            if (nomeUsuario) nomeUsuario.textContent = dados.nome;
+        }
+    }
+});

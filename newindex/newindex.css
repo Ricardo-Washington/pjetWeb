@@ -64,6 +64,14 @@ header nav ul li button {
     font-size: 17px;
     
 }
+.semBack{
+    background: #22222200;
+}
+.semBack:hover{
+    opacity: 0.8;
+    background: #33333300;
+}
+
 
 header nav ul li button:hover {
     background-color: #ca3713;

@@ -477,3 +477,25 @@ footer{
 #form-confirmacao-dados .btn:hover {
     background: #444;
 }
+
+#avatar-logo {
+    border-radius: 50%;
+    object-fit: cover;
+}
+#imglogo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+#nome-usuario {
+    font-family: 'Poppins', 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #2a2a2a;
+    margin-left: 8px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    background: linear-gradient(90deg, var(--secondary) 30%, #ffcc33 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

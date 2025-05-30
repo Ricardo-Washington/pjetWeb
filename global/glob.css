@@ -52,6 +52,23 @@ header .topo {
     margin-top: 17px;
 }
 
+.logotop {
+    display: flex;
+    align-items: center;
+    gap: 14px; /* Espaço entre logo e nome */
+}
+
+.logotop img {
+    width: 60px;
+    border-radius: 40px;
+}
+
+.nome-barbearia {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff; /* Ou #222 se o fundo for claro */
+    letter-spacing: 1px;
+}
 
 /*button*/
 

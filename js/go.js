@@ -22,3 +22,6 @@ function goPerfil() {
 function gohome() {
     window.location.href = "/home/newHome.html"
 }
+function goperfil() {
+    window.location.href = "/perfil/perfil.html"
+}

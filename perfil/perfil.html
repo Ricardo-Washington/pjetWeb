@@ -19,14 +19,21 @@
                     <p><button>Marcar</button></p>
                 </div>
                 <div class="comback">
-                    <p><button type="button" onclick=" gohome()">Sair</button></p>
+                    <p><button type="button" onclick="confirmarSaida()">Sair</button></p>
                 </div>
             </div>
         </div>
     </header>
 
     <div class="perfil-container">
+        <!-- Foto de perfil acima do título -->
+        <div class="foto-perfil-container">
+            <img id="foto-perfil" src="/img/avatar1.png" alt="Foto de Perfil" onclick="abrirModalAvatar()" style="cursor:pointer;">
+            <span class="foto-perfil-texto">Clique para trocar o avatar</span>
+        </div>
+
         <h2>Meu Perfil</h2>
+        
         <form id="form-perfil">
             <div class="form-group">
                 <label for="perfil-nome">Nome:</label>
@@ -40,13 +47,30 @@
                 <label for="perfil-email">E-mail:</label>
                 <input type="email" id="perfil-email" name="perfil-email" required readonly>
             </div>
-            
             <button type="submit" class="btn-salvar">Salvar Alterações</button>
-            
         </form>
         <div id="perfil-msg" class="perfil-msg"></div>
-        
     </div>
+
+    <!-- Modal de seleção de avatar -->
+<div id="modal-avatar" class="modal-avatar">
+    <div class="modal-avatar-content">
+        <span class="modal-avatar-close" onclick="fecharModalAvatar()">&times;</span>
+        <h3>Escolha seu avatar</h3>
+        <div class="avatar-opcoes-modal">
+              <!--  <img src="/img/avatar1.png" class="avatar-opcao" onclick="selecionarAvatar('/img/avatar1.jpg')" alt="Avatar 1">-->
+                <img src="/img/avatar2.jpg" class="avatar-opcao" onclick="selecionarAvatar('/img/avatar2.jpg')" alt="Avatar 2">
+                <img src="/img/avatar3.jpg" class="avatar-opcao" onclick="selecionarAvatar('/img/avatar3.jpg')" alt="Avatar 3">
+                <img src="/img/avatar4.jpg" class="avatar-opcao" onclick="selecionarAvatar('/img/avatar4.jpg')" alt="Avatar 4">
+                <img src="/img/avatar5.jpg" class="avatar-opcao" onclick="selecionarAvatar('/img/avatar5.jpg')" alt="Avatar 5">
+                <img src="/img/avatar6.jpg" class="avatar-opcao" onclick="selecionarAvatar('/img/avatar6.jpg')" alt="Avatar 6">
+                <img src="/img/avatar7.jpg" class="avatar-opcao" onclick="selecionarAvatar('/img/avatar7.jpg')" alt="Avatar 7">
+                <img src="/img/avatar8.jpg" class="avatar-opcao" onclick="selecionarAvatar('/img/avatar8.jpg')" alt="Avatar 8">
+                <img src="/img/avatar9.jpg" class="avatar-opcao" onclick="selecionarAvatar('/img/avatar9.jpg')" alt="Avatar 9">
+                <img src="/img/avatar10.jpg" class="avatar-opcao" onclick="selecionarAvatar('/img/avatar10.jpg')" alt="Avatar 10">
+        </div>
+    </div>
+</div>
 
     <footer>
         <div class="container">
@@ -60,10 +84,13 @@
         </div>
     </footer>
 
+    
+
 </body>
 <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-storage-compat.js"></script>
 <script src="/js/firebase-init.js"></script>
 <script src="perfil.js"></script>
 

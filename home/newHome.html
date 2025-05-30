@@ -35,6 +35,35 @@
                 <button id="openModalBtn" class="btn btn-primary" style="margin-top: 20px;" onclick="godashboard()">
                     <i class="fas fa-calendar-plus"></i> Agendar Horário
                 </button>
+                    <div class="servicos-lista" style="margin-top:20px;">
+        <h4>Serviços e Valores:</h4>
+        <table style="width:100%; border-collapse:collapse;">
+            <tr>
+                <td>Corte de Cabelo</td>
+                <td style="text-align:right;">R$ 35,00</td>
+            </tr>
+            <tr>
+                <td>Barba</td>
+                <td style="text-align:right;">R$ 25,00</td>
+            </tr>
+            <tr>
+                <td>Pintura</td>
+                <td style="text-align:right;">R$ 50,00</td>
+            </tr>
+            <tr>
+                <td>Sobrancelha</td>
+                <td style="text-align:right;">R$ 20,00</td>
+            </tr>
+            <tr>
+                <td>Progressiva</td>
+                <td style="text-align:right;">R$ 80,00</td>
+            </tr>
+            <tr>
+                <td>Descolorir Cabelo</td>
+                <td style="text-align:right;">R$ 90,00</td>
+            </tr>
+        </table>
+    </div>
             </div>
             
                 <div class="card">
@@ -88,6 +117,16 @@
                             <button class="btn btn-secondary product-btn">Comprar</button>
                         </div>
                     </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/img/produc4.png" alt="Óleo para Barba">
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-name">Óleo para cabelos</h3>
+                            <div class="product-price">R$ 80,90</div>
+                            <button class="btn btn-secondary product-btn">Comprar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -108,6 +147,22 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal do Carrinho -->
+    <div id="modal-carrinho" class="modal-carrinho">
+    <div class="modal-carrinho-content">
+        <h3>Carrinho de Compras</h3>
+        <div id="produtos-opcoes" class="produtos-opcoes"></div>
+        <ul id="carrinho-lista" class="carrinho-lista"></ul>
+        <div class="carrinho-total-area">Total: R$ <span id="carrinho-total">0,00</span></div>
+        <div id="qrcode-area" class="qrcode-area"></div>
+        <div class="carrinho-btns">
+        <button id="btn-gerar-qrcode" class="btn btn-primary">Gerar QR Code</button>
+        <button id="btn-fechar-carrinho" class="btn btn-cancel">Fechar</button>
+        </div>
+    </div>
+    </div>
+
 </body>
 
 <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app-compat.js"></script>
@@ -116,7 +171,7 @@
 
 
 <script src="/js/firebase-init.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 
 
 <script src="/home/newHome.js" ></script>

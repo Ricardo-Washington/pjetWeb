@@ -124,6 +124,20 @@ header {
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
 }
+.servicos-lista table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+.servicos-lista td {
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1em;
+}
+.servicos-lista h4 {
+    margin-bottom: 6px;
+    color: #000000;
+}
 
 .card-header::-webkit-scrollbar {
     height: 6px;
@@ -283,3 +297,110 @@ footer{
     color: white;
 }
 
+
+/* Modal do Carrinho */
+.modal-carrinho {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.4);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+.modal-carrinho-content {
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    margin: auto;
+    position: relative;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.produtos-opcoes {
+    margin-bottom: 15px;
+}
+.produtos-opcoes button {
+    margin: 5px 5px 5px 0;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: none;
+    background: #3498db;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.produtos-opcoes button:hover {
+    background: #217dbb;
+}
+.carrinho-lista {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+.carrinho-lista li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+}
+.carrinho-lista button {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-size: 1em;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.carrinho-total-area {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.qrcode-area {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.carrinho-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+.btn.btn-primary {
+    background: var(--secondary);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn.btn-primary:hover {
+    background: var(--accent);
+}
+.btn.btn-cancel {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn.btn-cancel:hover {
+    background: #c0392b;
+}
+.modal-carrinho {
+    display: none;
+    /* ...restante do seu CSS... */
+    align-items: center;
+    justify-content: center;
+}

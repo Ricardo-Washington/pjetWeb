@@ -128,3 +128,108 @@ function findTransactions(){
        })
     })
 }
+
+
+
+// Produtos em destaque (use os mesmos nomes e preços do HTML)
+const produtos = [
+    { nome: "Pomada Modeladora", preco: 45.90 },
+    { nome: "Óleo para Barba", preco: 39.90 },
+    { nome: "Shampoo Antiqueda", preco: 59.90 },
+    { nome: "Óleo para cabelos", preco: 80.90 }
+];
+
+let carrinho = [];
+
+// Função para abrir o modal do carrinho
+function abrirCarrinho() {
+    mostrarOpcoesProdutos();
+    atualizarCarrinho();
+    document.getElementById('modal-carrinho').style.display = 'flex';
+    document.getElementById('qrcode-area').innerHTML = '';
+}
+
+// Mostra as opções de produtos no modal
+function mostrarOpcoesProdutos() {
+    const opcoesDiv = document.getElementById('produtos-opcoes');
+    opcoesDiv.innerHTML = '<strong>Adicionar produto:</strong><br>';
+    produtos.forEach((prod, idx) => {
+        const btn = document.createElement('button');
+        btn.textContent = `${prod.nome} - R$ ${prod.preco.toFixed(2)}`;
+        btn.className = 'btn btn-primary';
+        btn.style.margin = '5px 5px 5px 0';
+        btn.onclick = () => {
+            adicionarAoCarrinho(prod);
+        };
+        opcoesDiv.appendChild(btn);
+    });
+}
+
+// Função para fechar o modal do carrinho
+document.getElementById('btn-fechar-carrinho').onclick = function() {
+    document.getElementById('modal-carrinho').style.display = 'none';
+    document.getElementById('qrcode-area').innerHTML = '';
+};
+
+// Adiciona produto ao carrinho
+function adicionarAoCarrinho(produto) {
+    carrinho.push(produto);
+    abrirCarrinho();
+}
+
+// Remove produto do carrinho
+function removerDoCarrinho(index) {
+    carrinho.splice(index, 1);
+    atualizarCarrinho();
+}
+
+// Atualiza a lista e o total do carrinho
+function atualizarCarrinho() {
+    const lista = document.getElementById('carrinho-lista');
+    const total = document.getElementById('carrinho-total');
+    lista.innerHTML = '';
+    let soma = 0;
+    carrinho.forEach((prod, idx) => {
+        soma += prod.preco;
+        const li = document.createElement('li');
+        li.innerHTML = `
+            ${prod.nome} - R$ ${prod.preco.toFixed(2)}
+            <button style="margin-left:10px; color:red; border:none; background:none; cursor:pointer;" onclick="removerDoCarrinho(${idx})">Remover</button>
+        `;
+        lista.appendChild(li);
+    });
+    total.textContent = soma.toFixed(2);
+}
+
+// Gera o QR Code do valor total
+document.getElementById('btn-gerar-qrcode').onclick = function() {
+    const total = carrinho.reduce((acc, prod) => acc + prod.preco, 0);
+    if (total === 0) {
+        alert('Adicione produtos ao carrinho!');
+        return;
+    }
+    // Exemplo: o QR pode ser um texto com o valor, ou um link de pagamento real
+    const qr = new QRious({
+        element: document.createElement('canvas'),
+        value: `Pagamento RightCut - Total: R$ ${total.toFixed(2)}`,
+        size: 180
+    });
+    const area = document.getElementById('qrcode-area');
+    area.innerHTML = '';
+    area.appendChild(qr.element);
+};
+
+// Adiciona eventos aos botões "Comprar"
+document.querySelectorAll('.product-btn').forEach((btn, idx) => {
+    btn.onclick = () => adicionarAoCarrinho(produtos[idx]);
+});
+
+// Permite remover do carrinho (função global)
+window.removerDoCarrinho = removerDoCarrinho;
+
+document.getElementById('modal-carrinho').addEventListener('click', function(event) {
+    if (event.target === this) {
+        this.style.display = 'none';
+        document.getElementById('qrcode-area').innerHTML = '';
+    }
+});

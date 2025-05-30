@@ -68,6 +68,18 @@
                         <p class="aviso-horario" style="display: none; color: orangered;">Não há horários disponíveis para esta data e barbeiro.</p>
                     </div>
                 </div>
+                <div class="form-group">
+          <label>Produtos adicionais:</label>
+          <div id="produtos-adicionais">
+              <label><input type="checkbox" value="Pomada Modeladora" data-preco="45.90"> Pomada Modeladora (R$ 45,90)</label><br>
+              <label><input type="checkbox" value="Óleo para Barba" data-preco="39.90"> Óleo para Barba (R$ 39,90)</label><br>
+              <label><input type="checkbox" value="Shampoo Antiqueda" data-preco="59.90"> Shampoo Antiqueda (R$ 59,90)</label><br>
+              <label><input type="checkbox" value="Óleo para cabelos" data-preco="80.90"> Óleo para cabelos (R$ 80,90)</label>
+          </div>
+</div>
+<div class="form-group">
+    <strong>Total: R$ <span id="valor-total-servico">0,00</span></strong>
+</div>
 
                 <button type="button" class="book-appointment-button" disabled>Reservar Horário</button>
             </section>
@@ -80,7 +92,7 @@
                 </section>
         </main>
     </div>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 
 <div id="modal-editar-agendamento" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4); z-index:1000; align-items:center; justify-content:center;">
   <div style="background:#fff; padding:30px 20px; border-radius:10px; max-width:350px; width:90%; margin:auto; position:relative;">
@@ -114,13 +126,25 @@
   </div>
 </div>
 
+
+<!-- modal qrcode--> 
+<div id="modal-qrcode" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4); z-index:1000; align-items:center; justify-content:center;">
+  <div style="background:#fff; padding:30px 20px; border-radius:10px; max-width:350px; width:90%; margin:auto; position:relative; text-align:center;">
+    <h3>Pagamento</h3>
+    <div id="qrcode-area-pagamento"></div>
+    <div style="margin-top:15px;">
+      <button type="button" id="btn-fechar-qrcode" class="btn-cancel">Fechar</button>
+    </div>
+  </div>
+</div>
+
 </body>
       <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app-compat.js"></script>
       <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-auth-compat.js"></script>
       <script src="/js/firebase-init.js"></script>
       <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore-compat.js"></script>
 
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
       <script src="dashboard-agendamento.js"></script>
       <script src="../js/auth-guard.js"></script>
       <script src="/js/go.js"></script>

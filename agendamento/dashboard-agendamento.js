@@ -291,3 +291,51 @@ document.getElementById('form-editar-agendamento').onsubmit = async function(e) 
     carregarAgendamentosUsuario();
 };
 
+// Preços dos serviços
+const precosServicos = {
+    "corte-cabelo": 35.00,
+    "barba": 25.00,
+    "pintura": 50.00,
+    "sobrancelha": 20.00,
+    "progressiva": 80.00,
+    "descolorir-cabelo": 90.00
+};
+
+// Atualiza o valor total
+function atualizarValorTotal() {
+    const servico = servicoSelect.value;
+    let total = precosServicos[servico] || 0;
+    document.querySelectorAll('#produtos-adicionais input[type="checkbox"]:checked').forEach(cb => {
+        total += parseFloat(cb.getAttribute('data-preco'));
+    });
+    document.getElementById('valor-total-servico').textContent = total.toFixed(2);
+    return total;
+}
+
+// Eventos para atualizar o valor total
+servicoSelect.addEventListener('change', atualizarValorTotal);
+document.querySelectorAll('#produtos-adicionais input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', atualizarValorTotal);
+});
+
+// Ao reservar, mostra o QR Code
+bookAppointmentButton.addEventListener('click', async () => {
+    // ...código de validação e cadastro...
+
+    // Após cadastrar, gere o QR Code do valor total
+    const total = atualizarValorTotal();
+    const qr = new QRious({
+        element: document.createElement('canvas'),
+        value: `Pagamento RightCut - Total: R$ ${total.toFixed(2)}`,
+        size: 180
+    });
+    const area = document.getElementById('qrcode-area-pagamento');
+    area.innerHTML = '';
+    area.appendChild(qr.element);
+    document.getElementById('modal-qrcode').style.display = 'flex';
+});
+
+// Fecha o modal do QR Code
+document.getElementById('btn-fechar-qrcode').onclick = function() {
+    document.getElementById('modal-qrcode').style.display = 'none';
+};

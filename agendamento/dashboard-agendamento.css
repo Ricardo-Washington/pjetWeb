@@ -105,6 +105,8 @@ header .user-greeting {
     font-size: 1.1em;
     color: #777;
 }
+
+
 /* button de escluir e editar  */
 .appointment-actions {
     display: flex;
@@ -157,14 +159,16 @@ header .user-greeting {
     color: #555;
     margin-bottom: 8px;
 }
-
+.form-group{
+    margin-top: 10px;
+}
 .form-group select,
 .form-group input[type="date"] {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1em;
-    appearance: none; /* Remove estilos padrão do navegador para o select */
+    appearance: none; 
     background-image: url('data:image/svg+xml;utf8,<svg fill="currentColor" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>');
     background-repeat: no-repeat;
     background-position: right 10px center;
@@ -180,6 +184,7 @@ header .user-greeting {
     font-size: 1.1em;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
 .book-appointment-button:hover {
@@ -191,7 +196,7 @@ header .user-greeting {
     cursor: not-allowed;
 }
 
-/* Upcoming Appointments */
+
 .upcoming-appointments {
     margin-top: 40px;
 }

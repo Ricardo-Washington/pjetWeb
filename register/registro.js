@@ -113,7 +113,7 @@ function isFormValid(){
 
 /**
  * Realiza o cadastro do usuário no Firebase Auth e salva os dados no Firestore.
- 
+8
 function register() {
     const email = form.email().value;
     const password = form.password().value;
@@ -145,7 +145,8 @@ function register() {
         }
     });
 }
-    */
+*/
+  
 
 /**
  * Objeto utilitário para acessar campos e mensagens do formulário.
@@ -221,7 +222,7 @@ function validateCPF(cpf) {
 
 /**
  * Realiza o cadastro do usuário no Firebase Auth e salva os dados completos na coleção "clientes".
- */
+ 
 function register() {
     alert("Clicou no botão de cadastro");
     const email = form.email().value;
@@ -232,8 +233,17 @@ function register() {
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-        const userId = userCredential.user.uid;
-        // Salva os dados do usuário na coleção "clientes"
+        // Aguarda o usuário estar autenticado de fato
+        return new Promise(resolve => {
+            const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    unsubscribe();
+                    resolve(user.uid);
+                }
+            });
+        });
+    })
+    .then((userId) => {
         return firebase.firestore().collection('clientes').doc(userId).set({
             uid: userId,
             nome: name,
@@ -255,3 +265,4 @@ function register() {
         }
     });
 }
+    */

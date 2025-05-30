@@ -1,3 +1,4 @@
+// Seletores principais
 const dataInput = document.getElementById('data');
 const horarioSelect = document.getElementById('horario');
 const barbeiroSelect = document.getElementById('barbeiro');
@@ -5,7 +6,28 @@ const bookAppointmentButton = document.querySelector('.book-appointment-button')
 const avisoHorario = document.querySelector('.aviso-horario');
 const servicoSelect = document.getElementById('servico');
 
-// Habilita/desabilita botão conforme seleção
+// Preços dos serviços
+const precosServicos = {
+    "corte-cabelo": 35.00,
+    "barba": 25.00,
+    "pintura": 50.00,
+    "sobrancelha": 20.00,
+    "progressiva": 80.00,
+    "descolorir-cabelo": 90.00
+};
+
+// Atualiza o valor total do serviço + produtos adicionais
+function atualizarValorTotal() {
+    const servico = servicoSelect.value;
+    let total = precosServicos[servico] || 0;
+    document.querySelectorAll('#produtos-adicionais input[type="checkbox"]:checked').forEach(cb => {
+        total += parseFloat(cb.getAttribute('data-preco'));
+    });
+    document.getElementById('valor-total-servico').textContent = total.toFixed(2);
+    return total;
+}
+
+// Habilita/desabilita botão conforme seleção dos campos
 function checkBookingAvailability() {
     if (
         servicoSelect.value &&
@@ -20,7 +42,7 @@ function checkBookingAvailability() {
     }
 }
 
-// Carrega horários disponíveis do banco
+// Carrega horários disponíveis do banco para novo agendamento
 async function loadAvailableTimes(date) {
     const barbeiroId = barbeiroSelect.value;
     if (!date || !barbeiroId) {
@@ -68,7 +90,7 @@ async function loadAvailableTimes(date) {
     }
 }
 
-// Evento para cadastrar agendamento com verificação de disponibilidade
+// Evento para cadastrar agendamento e gerar QR Code
 bookAppointmentButton.addEventListener('click', async () => {
     const servico = servicoSelect.value;
     const barbeiro = barbeiroSelect.value;
@@ -81,10 +103,9 @@ bookAppointmentButton.addEventListener('click', async () => {
     }
     // Verifica se a data escolhida já passou
     const hoje = new Date();
-    hoje.setHours(0,0,0,0); // Zera horas para comparar só a data
+    hoje.setHours(0,0,0,0);
     const partesData = data.split('-');
     const dataSelecionada = new Date(partesData[0], partesData[1] - 1, partesData[2]);
-
     if (dataSelecionada < hoje) {
         alert('Não é possível agendar para uma data que já passou!');
         return;
@@ -102,7 +123,7 @@ bookAppointmentButton.addEventListener('click', async () => {
             return;
         }
 
-        // Se não existe, pode cadastrar
+        // Salva o agendamento
         await firebase.firestore().collection('agendamentos').add({
             servico,
             barbeiro,
@@ -112,6 +133,19 @@ bookAppointmentButton.addEventListener('click', async () => {
             status: 'pendente',
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         });
+
+        // Gera o QR Code do valor total
+        const total = atualizarValorTotal();
+        const qr = new QRious({
+            element: document.createElement('canvas'),
+            value: `Pagamento RightCut - Total: R$ ${total.toFixed(2)}`,
+            size: 180
+        });
+        const area = document.getElementById('qrcode-area-pagamento');
+        area.innerHTML = '';
+        area.appendChild(qr.element);
+        document.getElementById('modal-qrcode').style.display = 'flex';
+
         alert('Reserva cadastrada com sucesso!');
         // Limpa o formulário
         servicoSelect.value = '';
@@ -121,12 +155,19 @@ bookAppointmentButton.addEventListener('click', async () => {
         horarioSelect.disabled = true;
         bookAppointmentButton.disabled = true;
         avisoHorario.style.display = 'none';
+        // Atualiza lista de agendamentos
         carregarAgendamentosUsuario();
+        atualizarValorTotal();
     } catch (error) {
         alert('Erro ao cadastrar agendamento!');
         console.error(error);
     }
 });
+
+// Fecha o modal do QR Code
+document.getElementById('btn-fechar-qrcode').onclick = function() {
+    document.getElementById('modal-qrcode').style.display = 'none';
+};
 
 // Busca e exibe os agendamentos do usuário logado
 async function carregarAgendamentosUsuario() { 
@@ -144,8 +185,7 @@ async function carregarAgendamentosUsuario() {
     if (snapshot.empty) {
         lista.innerHTML = '<li>Nenhum agendamento encontrado.</li>';
         return;
-    }   
-    // Exibe os agendamentosdo usuário
+    }
     snapshot.forEach(doc => {
         const agendamento = doc.data();
         const agendamentoId = doc.id;
@@ -173,15 +213,17 @@ async function carregarAgendamentosUsuario() {
         });
         // Botão editar
         li.querySelector('.btn-edit').addEventListener('click', () => {
-        abrirModalEditar(agendamento, agendamentoId);
-    });
+            abrirModalEditar(agendamento, agendamentoId);
+        });
         lista.appendChild(li);
     });
-
-    }
+}
 
 // Eventos para atualizar horários e botão
-servicoSelect.addEventListener('change', checkBookingAvailability);
+servicoSelect.addEventListener('change', () => {
+    checkBookingAvailability();
+    atualizarValorTotal();
+});
 barbeiroSelect.addEventListener('change', () => {
     loadAvailableTimes(dataInput.value);
     checkBookingAvailability();
@@ -191,6 +233,9 @@ dataInput.addEventListener('change', () => {
     checkBookingAvailability();
 });
 horarioSelect.addEventListener('change', checkBookingAvailability);
+document.querySelectorAll('#produtos-adicionais input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', atualizarValorTotal);
+});
 
 // Chama a função ao carregar a página
 firebase.auth().onAuthStateChanged(user => {
@@ -200,7 +245,6 @@ firebase.auth().onAuthStateChanged(user => {
 // Função para formatar a data para o padrão brasileiro
 function formatarDataBR(dataISO) {
     if (!dataISO) return '';
-    // Se vier no formato xxxx-xx-xx
     const partes = dataISO.split('-');
     if (partes.length === 3) {
         return `${partes[2]}/${partes[1]}/${partes[0]}`;
@@ -208,9 +252,7 @@ function formatarDataBR(dataISO) {
     return dataISO;
 }
 
-
-
-// comando do modal de edição
+// ------------------- Modal de edição -------------------
 let agendamentoEditandoId = null;
 let agendamentoEditandoBarbeiro = null;
 
@@ -249,19 +291,19 @@ async function carregarHorariosEdicao(data, horarioAtual) {
     document.getElementById('editar-horario').value = horarioAtual;
 }
 
-// Fecha o modal
+// Fecha o modal de edição
 document.getElementById('btn-cancelar-edicao').onclick = () => {
     document.getElementById('modal-editar-agendamento').style.display = 'none';
     agendamentoEditandoId = null;
     agendamentoEditandoBarbeiro = null;
 };
 
-// Atualiza horários ao mudar a data no modal
+// Atualiza horários ao mudar a data no modal de edição
 document.getElementById('editar-data').addEventListener('change', function() {
     carregarHorariosEdicao(this.value, null);
 });
 
-// Salva a edição
+// Salva a edição do agendamento
 document.getElementById('form-editar-agendamento').onsubmit = async function(e) {
     e.preventDefault();
     if (!agendamentoEditandoId) return;
@@ -289,53 +331,4 @@ document.getElementById('form-editar-agendamento').onsubmit = async function(e) 
     agendamentoEditandoId = null;
     agendamentoEditandoBarbeiro = null;
     carregarAgendamentosUsuario();
-};
-
-// Preços dos serviços
-const precosServicos = {
-    "corte-cabelo": 35.00,
-    "barba": 25.00,
-    "pintura": 50.00,
-    "sobrancelha": 20.00,
-    "progressiva": 80.00,
-    "descolorir-cabelo": 90.00
-};
-
-// Atualiza o valor total
-function atualizarValorTotal() {
-    const servico = servicoSelect.value;
-    let total = precosServicos[servico] || 0;
-    document.querySelectorAll('#produtos-adicionais input[type="checkbox"]:checked').forEach(cb => {
-        total += parseFloat(cb.getAttribute('data-preco'));
-    });
-    document.getElementById('valor-total-servico').textContent = total.toFixed(2);
-    return total;
-}
-
-// Eventos para atualizar o valor total
-servicoSelect.addEventListener('change', atualizarValorTotal);
-document.querySelectorAll('#produtos-adicionais input[type="checkbox"]').forEach(cb => {
-    cb.addEventListener('change', atualizarValorTotal);
-});
-
-// Ao reservar, mostra o QR Code
-bookAppointmentButton.addEventListener('click', async () => {
-    // ...código de validação e cadastro...
-
-    // Após cadastrar, gere o QR Code do valor total
-    const total = atualizarValorTotal();
-    const qr = new QRious({
-        element: document.createElement('canvas'),
-        value: `Pagamento RightCut - Total: R$ ${total.toFixed(2)}`,
-        size: 180
-    });
-    const area = document.getElementById('qrcode-area-pagamento');
-    area.innerHTML = '';
-    area.appendChild(qr.element);
-    document.getElementById('modal-qrcode').style.display = 'flex';
-});
-
-// Fecha o modal do QR Code
-document.getElementById('btn-fechar-qrcode').onclick = function() {
-    document.getElementById('modal-qrcode').style.display = 'none';
 };

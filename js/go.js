@@ -16,3 +16,9 @@ function gonewHome() {
 function godashboard() {
     window.location.href = "/agendamento/dashboard-agendamento.html"
 }
+function goPerfil() {
+    window.location.href = "/perfil/perfil.html"
+}
+function gohome() {
+    window.location.href = "/home/newHome.html"
+}

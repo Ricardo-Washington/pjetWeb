@@ -404,3 +404,76 @@ footer{
     align-items: center;
     justify-content: center;
 }
+
+/* Modal de confirmação de dados */
+#modal-confirmacao-dados {
+    display: none; /* será exibido via JS */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+#modal-confirmacao-dados.show {
+    display: flex;
+}
+
+.modal-carrinho-content, .modal-confirmacao-content {
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    max-width: 350px;
+    width: 90vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#modal-confirmacao-dados h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.3rem;
+    color: #222;
+    text-align: center;
+}
+
+#form-confirmacao-dados label {
+    font-weight: 500;
+    margin-bottom: 4px;
+    display: block;
+    color: #333;
+}
+
+#form-confirmacao-dados input {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 12px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+#form-confirmacao-dados .btn {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 6px;
+    background: #222;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+#form-confirmacao-dados .btn:hover {
+    background: #444;
+}

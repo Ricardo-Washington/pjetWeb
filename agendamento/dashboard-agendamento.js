@@ -1,3 +1,16 @@
+firebase.auth().onAuthStateChanged(async user => {
+    if (user) {
+        // Busca o nome do cliente na coleção "clientes"
+        const doc = await firebase.firestore().collection('clientes').doc(user.uid).get();
+        if (doc.exists) {
+            const dados = doc.data();
+            document.getElementById('nome-cliente').textContent = dados.nome || '';
+        } else {
+            document.getElementById('nome-cliente').textContent = '';
+        }
+    }
+});
+
 // Seletores principais
 const dataInput = document.getElementById('data');
 const horarioSelect = document.getElementById('horario');

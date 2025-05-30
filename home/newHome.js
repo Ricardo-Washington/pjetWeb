@@ -1,3 +1,48 @@
+firebase.auth().onAuthStateChanged(async user => {
+    if (user) {
+        // Busca dados do usuário na coleção "clientes"
+        const doc = await firebase.firestore().collection('clientes').doc(user.uid).get();
+        if (!doc.exists) {
+            // Se não existir, pede confirmação dos dados
+            mostrarModalConfirmacao(user);
+        }
+        carregarAgendamentosUsuario();
+    } else {
+        window.location.href = "/login/login.html";
+    }
+});
+
+// Função para mostrar o modal e preencher com dados do usuário autenticado
+function mostrarModalConfirmacao(user) {
+    const modal = document.getElementById('modal-confirmacao-dados');
+    document.getElementById('conf-nome').value = user.displayName || '';
+    document.getElementById('conf-cpf').value = '';
+    document.getElementById('conf-telefone').value = user.phoneNumber || '';
+    document.getElementById('conf-email').value = user.email || '';
+    modal.style.display = 'flex';
+
+    // Ao confirmar, salva na coleção "clientes"
+    document.getElementById('form-confirmacao-dados').onsubmit = async function(e) {
+        e.preventDefault();
+        const nome = document.getElementById('conf-nome').value.trim();
+        const cpf = document.getElementById('conf-cpf').value.trim();
+        const telefone = document.getElementById('conf-telefone').value.trim();
+        const email = document.getElementById('conf-email').value.trim();
+
+        await firebase.firestore().collection('clientes').doc(user.uid).set({
+            uid: user.uid,
+            nome,
+            cpf,
+            telefone,
+            email,
+            confirmadoEm: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        modal.style.display = 'none';
+        alert('Dados confirmados com sucesso!');
+    };
+}
+
+
 // Verifica se o Firebase está carregado e usuário autenticado
 firebase.auth().onAuthStateChanged(user => {
     if (user) {

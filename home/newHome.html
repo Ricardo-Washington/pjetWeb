@@ -16,7 +16,7 @@
             </div>
             <div class="infor">
                 <div class="semback">
-                    <p><button onclick="godashboard()">Agendar</button></p>
+                    <p><button onclick="goPerfil()">Perfil</button></p>
                 </div>
                 <div class="comback">
                     <p><button type="button" onclick="logout()">Sair</button></p>
@@ -160,6 +160,34 @@
         <button id="btn-gerar-qrcode" class="btn btn-primary">Gerar QR Code</button>
         <button id="btn-fechar-carrinho" class="btn btn-cancel">Fechar</button>
         </div>
+    </div>
+    </div>
+
+    <!-- Modal de confirmação de dados -->
+    <div id="modal-confirmacao-dados" class="modal-carrinho" style="display:none;">
+    <div class="modal-carrinho-content">
+        <h3>Confirme seus dados</h3>
+        <form id="form-confirmacao-dados">
+        <div>
+            <label>Nome:</label>
+            <input type="text" id="conf-nome" required>
+        </div>
+        <div>
+            <label>CPF:</label>
+            <input type="text" id="conf-cpf" required>
+        </div>
+        <div>
+            <label>Telefone:</label>
+            <input type="text" id="conf-telefone" required>
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" id="conf-email" required>
+        </div>
+        <div class="carrinho-btns" style="margin-top:15px;">
+            <button type="submit" class="btn btn-primary">Confirmar</button>
+        </div>
+        </form>
     </div>
     </div>
 

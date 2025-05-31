@@ -1,0 +1,80 @@
+{
+  "id": "rightcut_001",
+  "categoria": {
+    "titulo": "Gerenciamento de Barbearia",
+    "descricao": "Sistema de agendamentos e serviços para barbearias",
+    "dataCriacao": "2025-05-31T19:04:00",
+    "dataAlteracao": "2025-05-31T19:04:00"
+  },
+  "listaDeServicos": [
+    {
+      "servico": {
+        "id": "service_001",
+        "nome": "Corte de cabelo",
+        "descricao": "Corte clássico ou moderno realizado por barbeiros profissionais.",
+        "tipo": "UNICA_DOSE",
+        "codigo": "CUT123",
+        "dataCriacao": "2025-05-31T19:04:00",
+        "dataExclusao": null,
+        "dataAlteracao": null,
+        "versao": 1
+      },
+      "tempoDuracao": 30,
+      "preco": 40.00,
+      "dataCriacao": "2025-05-31T19:04:00",
+      "dataAlteracao": "2025-05-31T19:04:00",
+      "dataExclusao": null
+    },
+    {
+      "servico": {
+        "id": "service_002",
+        "nome": "Barba",
+        "descricao": "Modelagem e cuidado para barba com produtos específicos.",
+        "tipo": "UNICA_DOSE",
+        "codigo": "BEARD456",
+        "dataCriacao": "2025-05-31T19:04:00",
+        "dataExclusao": null,
+        "dataAlteracao": null,
+        "versao": 1
+      },
+      "tempoDuracao": 20,
+      "preco": 30.00,
+      "dataCriacao": "2025-05-31T19:04:00",
+      "dataAlteracao": "2025-05-31T19:04:00",
+      "dataExclusao": null
+    }
+  ],
+  "clientes": [
+    {
+      "id": "cliente_001",
+      "nome": "Ricardo",
+      "email": "ricardo@email.com",
+      "telefone": "+55 61 99999-9999",
+      "dataCriacao": "2025-05-31T19:04:00",
+      "dataAlteracao": "2025-05-31T19:04:00"
+    }
+  ],
+  "agendamentos": [
+    {
+      "id": "agendamento_001",
+      "cliente": "cliente_001",
+      "servico": "service_001",
+      "data": "2025-06-01T15:00:00",
+      "status": "Confirmado",
+      "dataCriacao": "2025-05-31T19:04:00",
+      "dataAlteracao": "2025-05-31T19:04:00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "pagamento_001",
+      "cliente": "cliente_001",
+      "agendamento": "agendamento_001",
+      "valor": 40.00,
+      "metodo": "QR Code",
+      "status": "Pago",
+      "dataCriacao": "2025-05-31T19:04:00",
+      "dataAlteracao": "2025-05-31T19:04:00"
+    }
+  ]
+}
